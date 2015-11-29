@@ -1,0 +1,290 @@
+[DEBREATE-0.7.10]
+<<CTRL>>
+Package: educiaa-python-editor
+Version: 1.0
+Maintainer: Ernesto Gigliotti <ernestogigliotti@gmail.com>
+Priority: optional
+Architecture: amd64
+Depends: python-serial (>=2.6), python-gtksourceview2 (>=2.10.1)
+Description: EDU-CIAA Python Editor
+
+<</CTRL>>
+<<FILES>>
+1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/button-minimize-unfocused.png -> button-minimize-unfocused.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/button-minimize-pressed.png -> button-minimize-pressed.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/button-menu-unfocused.png -> button-menu-unfocused.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/button-maximize-pressed.png -> button-maximize-pressed.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/pixmaps.active_left.png -> pixmaps.active_left.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/pixmaps.active_right.png -> pixmaps.active_right.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/frame-bottom-left-focused1.png -> frame-bottom-left-focused1.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/button-menu-focused.png -> button-menu-focused.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/button-close-unfocused.png -> button-close-unfocused.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/frame-bottom-right-focused.png -> frame-bottom-right-focused.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/metacity-theme-1.xml -> metacity-theme-1.xml -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/button-menu-pressed.png -> button-menu-pressed.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/pixmaps.active_top.png -> pixmaps.active_top.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/button-minimize-focused.png -> button-minimize-focused.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/frame-bottom-mid-focused.png -> frame-bottom-mid-focused.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/button-maximize-focused.png -> button-maximize-focused.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/button-close-pressed.png -> button-close-pressed.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/pixmaps.active_top_right.png -> pixmaps.active_top_right.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/pixmaps.active_top_left.png -> pixmaps.active_top_left.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/right.png -> right.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/button-maximize-unfocused.png -> button-maximize-unfocused.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/left.png -> left.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/button-close-focused.png -> button-close-focused.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1/top.png -> top.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/metacity-1
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Font/font-normal.png -> font-normal.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Font
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Font/font-pressed.png -> font-pressed.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Font
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Font/font-arrow-prelight.png -> font-arrow-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Font
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Font/font-inactive.png -> font-inactive.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Font
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Font/font-prelight.png -> font-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Font
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Font/font-arrow.png -> font-arrow.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Font
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Font/font-arrow-insens.png -> font-arrow-insens.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Font
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Range/slider-horiz.png -> slider-horiz.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Range
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Range/trough-horizontal.png -> trough-horizontal.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Range
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Range/null.png -> null.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Range
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Range/slider-vert-prelight.png -> slider-vert-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Range
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Range/slider-vert.png -> slider-vert.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Range
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Range/trough-vertical.png -> trough-vertical.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Range
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Range/slider-horiz-prelight.png -> slider-horiz-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Range
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows/entry-shadow-in.png -> entry-shadow-in.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows/entry-shadow-in_.png -> entry-shadow-in_.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows/shadow-none.png -> shadow-none.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows/text-entry.png -> text-entry.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows/shadow-out.png -> shadow-out.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows/text.png -> text.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows/shadow-in.png -> shadow-in.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Others/focus.png -> focus.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Others
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Others/ruler_.png -> ruler_.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Others
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Others/ruler.png -> ruler.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Others
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Others/null.png -> null.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Others
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/epiphany-secure.png -> epiphany-secure.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/rhythmbox-next.png -> rhythmbox-next.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/gtk-dialog-error.png -> gtk-dialog-error.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/gtk-zoom-out.png -> gtk-zoom-out.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/epiphany-bookmark-page.png -> epiphany-bookmark-page.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/gtk-dialog-question.png -> gtk-dialog-question.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/gtk-dialog-warning.png -> gtk-dialog-warning.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/rhythmbox-pause.png -> rhythmbox-pause.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/rhythmbox-stop.png -> rhythmbox-stop.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/rhythmbox-play.png -> rhythmbox-play.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/gtk-close.png -> gtk-close.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/gtk-dialog-info.png -> gtk-dialog-info.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/cdplayer-eject.png -> cdplayer-eject.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/gtk-select-color.png -> gtk-select-color.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/rhythmbox-previous.png -> rhythmbox-previous.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/panel-lockscreen.png -> panel-lockscreen.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/iconrc -> iconrc -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/gtk-zoom-in.png -> gtk-zoom-in.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/rhythmbox-iradio.png -> rhythmbox-iradio.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/epiphany-unsecure.png -> epiphany-unsecure.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons/gnome-stock-gnome-run.png -> gnome-stock-gnome-run.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/icons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ListHeaders/list_header.png -> list_header.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ListHeaders
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ListHeaders/list_header-pressed.png -> list_header-pressed.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ListHeaders
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ListHeaders/list_header-prelight.png -> list_header-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ListHeaders
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Frame-Gap/frame-gap-end.png -> frame-gap-end.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Frame-Gap
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Frame-Gap/frame-gap-start.png -> frame-gap-start.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Frame-Gap
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Frame-Gap/frame2.png -> frame2.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Frame-Gap
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Frame-Gap/frame.png -> frame.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Frame-Gap
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Frame-Gap/frame1.png -> frame1.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Frame-Gap
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/notebook.png -> notebook.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/tab-top-active.png -> tab-top-active.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/tab-left.png -> tab-left.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/notebook_bottom_flat.png -> notebook_bottom_flat.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/notebook2.png -> notebook2.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/tab-right.png -> tab-right.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/tab-bottom-active.png -> tab-bottom-active.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/tab-right-active.png -> tab-right-active.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/tab-bottom.png -> tab-bottom.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/notebook_left_flat.png -> notebook_left_flat.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/notebook1.png -> notebook1.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/tab-left-active.png -> tab-left-active.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/notebook_flat.png -> notebook_flat.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/notebook_top_flat.png -> notebook_top_flat.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/tab-top.png -> tab-top.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs/notebook_right_flat.png -> notebook_right_flat.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Tabs
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Lines/line-h.png -> line-h.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Lines
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Lines/line-v.png -> line-v.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Lines
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ProgressBar/trough-progressbar-vert.png -> trough-progressbar-vert.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ProgressBar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ProgressBar/trough-progressbar-horiz.png -> trough-progressbar-horiz.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ProgressBar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ProgressBar/progressbar-vert.png -> progressbar-vert.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ProgressBar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ProgressBar/progressbar-horiz.png -> progressbar-horiz.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ProgressBar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ProgressBar/animation-backwards.gif -> animation-backwards.gif -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/ProgressBar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Handles/handle-v.png -> handle-v.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Handles
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Handles/resize_grip.png -> resize_grip.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Handles
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Handles/dimple.png -> dimple.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Handles
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Handles/handle-h.png -> handle-h.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Handles
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Panel/panelbutton-pressed.png -> panelbutton-pressed.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Panel
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Panel/panelbutton-prelight.png -> panelbutton-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Panel
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Panel/panelbutton.png -> panelbutton.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Panel
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Panel/panel-bg.png -> panel-bg.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Panel
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows/arrow-down-prelight.png -> arrow-down-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows/arrow-down_.png -> arrow-down_.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows/arrow-right.png -> arrow-right.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows/arrow-left.png -> arrow-left.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows/arrow-down.png -> arrow-down.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows/arrow-up.png -> arrow-up.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows/arrow-right-prelight.png -> arrow-right-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows/arrow-right-norm.png -> arrow-right-norm.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Arrows
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar/toolbar1.png -> toolbar1.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar/patch.png -> patch.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar/toolbutton-inactive.png -> toolbutton-inactive.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar/toolbutton-pressed.png -> toolbutton-pressed.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar/toolbutton-toggled.png -> toolbutton-toggled.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar/grayscale.png -> grayscale.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar/toolbar.png -> toolbar.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar/toolbutton-prelight.png -> toolbutton-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar/toolbutton-normal.png -> toolbutton-normal.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Toolbar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars/horizontal_trough.png -> horizontal_trough.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars/vertical_trough.png -> vertical_trough.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars/scrollbar_horizontal.png -> scrollbar_horizontal.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars/bottom.png -> bottom.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars/right.png -> right.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars/scrollbar_vertical.png -> scrollbar_vertical.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars/left.png -> left.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars/top.png -> top.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Scrollbars
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2/text-thunar.png -> text-thunar.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2/shadow-none.png -> shadow-none.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2/text-end.png -> text-end.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2/etched-out.png -> etched-out.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2/shadow-out.png -> shadow-out.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2/etched-in-alt.png -> etched-in-alt.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2/text.png -> text.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2/text-nautilus.png -> text-nautilus.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2/etched-in.png -> etched-in.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2/shadow-in.png -> shadow-in.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2/arrow.png -> arrow.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Shadows2
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio/check2.png -> check2.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio/option2.png -> option2.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio/check4.png -> check4.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio/option1.png -> option1.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio/check3.png -> check3.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio/option3.png -> option3.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio/check6.png -> check6.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio/check1.png -> check1.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio/option5.png -> option5.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio/option4.png -> option4.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio/checklight.png -> checklight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio/highlight.png -> highlight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio/check5.png -> check5.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Check-Radio
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons/button-insensitive.png -> button-insensitive.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons/tab-normal.png -> tab-normal.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons/button-pressed.png -> button-pressed.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons/tab-prelight.png -> tab-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons/button-default.png -> button-default.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons/tab-pressed.png -> tab-pressed.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons/button-normal.png -> button-normal.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons/button-prelight.png -> button-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons/tab-insensitive.png -> tab-insensitive.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Buttons
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin/spinbutton-up-pressed.png -> spinbutton-up-pressed.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin/spinbutton-up-prelight.png -> spinbutton-up-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin/spin-up.png -> spin-up.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin/spin-down-prelight.png -> spin-down-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin/spinbutton-up-inactive.png -> spinbutton-up-inactive.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin/spin-down-disable.png -> spin-down-disable.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin/spin-down.png -> spin-down.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin/spin-up-prelight.png -> spin-up-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin/spinbutton-up.png -> spinbutton-up.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin/spinbutton-down-pressed.png -> spinbutton-down-pressed.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin/spinbutton-down-inactive.png -> spinbutton-down-inactive.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin/spinbutton-down.png -> spinbutton-down.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin/spin-up-disable.png -> spin-up-disable.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin/spinbutton-down-prelight.png -> spinbutton-down-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Spin
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Menu-Menubar/menu.png -> menu.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Menu-Menubar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Menu-Menubar/menuitem.png -> menuitem.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Menu-Menubar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Menu-Menubar/menu-arrow.png -> menu-arrow.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Menu-Menubar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Menu-Menubar/menu-separator.png -> menu-separator.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Menu-Menubar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Menu-Menubar/menubar-item.png -> menubar-item.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Menu-Menubar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Menu-Menubar/menu-arrow-prelight.png -> menu-arrow-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Menu-Menubar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Menu-Menubar/menubar.png -> menubar.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Menu-Menubar
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Combo/combo-arrow.png -> combo-arrow.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Combo
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Combo/combo-prelight.png -> combo-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Combo
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Combo/combo-normal.png -> combo-normal.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Combo
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Combo/combo-inactive.png -> combo-inactive.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Combo
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Combo/combo-arrow-insens.png -> combo-arrow-insens.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Combo
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Combo/combo-arrow-prelight.png -> combo-arrow-prelight.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Combo
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Combo/combo-pressed.png -> combo-pressed.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/Combo
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/grayscale3000.png -> grayscale3000.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/trans.png -> trans.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/evolution-tweaks.rc -> evolution-tweaks.rc -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/graystretch.png -> graystretch.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/epiphany-tweaks.rc -> epiphany-tweaks.rc -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/grayscale.png -> grayscale.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/nautilus-tweaks.rc -> nautilus-tweaks.rc -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/gradient.png -> gradient.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/thunar-tweaks.rc -> thunar-tweaks.rc -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/scrollbar.rc -> scrollbar.rc -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/widgets.txt -> widgets.txt -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/epiphany-tweaks-notext.rc -> epiphany-tweaks-notext.rc -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/grayscale1600.png -> grayscale1600.png -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0/gtkrc -> gtkrc -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/gtk-2.0
+/home/python/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4/index.theme -> index.theme -> /opt/educiaa_python_editor/themes/Mac4Lin_GTK_v0.4
+/home/python/educiaa_python_editor/snippets/SnippetsWindow.glade -> SnippetsWindow.glade -> /opt/educiaa_python_editor/snippets
+/home/python/educiaa_python_editor/snippets/SnippetsParser.py -> SnippetsParser.py -> /opt/educiaa_python_editor/snippets
+/home/python/educiaa_python_editor/snippets/snippets.xml -> snippets.xml -> /opt/educiaa_python_editor/snippets
+/home/python/educiaa_python_editor/snippets/__init__.py -> __init__.py -> /opt/educiaa_python_editor/snippets
+/home/python/educiaa_python_editor/snippets/SnippetsWindow.py -> SnippetsWindow.py -> /opt/educiaa_python_editor/snippets
+/home/python/educiaa_python_editor/protocol/xmodem/__init__.py -> __init__.py -> /opt/educiaa_python_editor/protocol/xmodem
+/home/python/educiaa_python_editor/protocol/Protocol.py -> Protocol.py -> /opt/educiaa_python_editor/protocol
+/home/python/educiaa_python_editor/protocol/__init__.py -> __init__.py -> /opt/educiaa_python_editor/protocol
+/home/python/educiaa_python_editor/icons/loadScript.png -> loadScript.png -> /opt/educiaa_python_editor/icons
+/home/python/educiaa_python_editor/icons/snippets.png -> snippets.png -> /opt/educiaa_python_editor/icons
+/home/python/educiaa_python_editor/icons/icon.ico -> icon.ico -> /opt/educiaa_python_editor/icons
+/home/python/educiaa_python_editor/icons/terminal.png -> terminal.png -> /opt/educiaa_python_editor/icons
+/home/python/educiaa_python_editor/console/Console.py -> Console.py -> /opt/educiaa_python_editor/console
+/home/python/educiaa_python_editor/console/__init__.py -> __init__.py -> /opt/educiaa_python_editor/console
+/home/python/educiaa_python_editor/splash.png -> splash.png -> /opt/educiaa_python_editor
+/home/python/educiaa_python_editor/Main.py* -> Main.py -> /opt/educiaa_python_editor
+/home/python/educiaa_python_editor/LoadScriptWindow.py -> LoadScriptWindow.py -> /opt/educiaa_python_editor
+/home/python/educiaa_python_editor/LoadScriptWindow.glade -> LoadScriptWindow.glade -> /opt/educiaa_python_editor
+/home/python/educiaa_python_editor/LICENSE.txt -> LICENSE.txt -> /opt/educiaa_python_editor
+/home/python/educiaa_python_editor/ConfigWindow.py -> ConfigWindow.py -> /opt/educiaa_python_editor
+/home/python/educiaa_python_editor/ConfigWindow.glade -> ConfigWindow.glade -> /opt/educiaa_python_editor
+/home/python/educiaa_python_editor/ConfigManager.py -> ConfigManager.py -> /opt/educiaa_python_editor
+/home/python/educiaa_python_editor/config.dat -> config.dat -> /opt/educiaa_python_editor
+/home/python/educiaa_python_editor/ciaa_plugin.py -> ciaa_plugin.py -> /opt/educiaa_python_editor
+<</FILES>>
+<<SCRIPTS>>
+<<PREINST>>
+0
+<</PREINST>>
+<<POSTINST>>
+1
+chmod +x /opt/educiaa_python_editor/Main.py
+<</POSTINST>>
+<<PRERM>>
+0
+<</PRERM>>
+<<POSTRM>>
+0
+<</POSTRM>>
+<</SCRIPTS>>
+<<CHANGELOG>>
+<<DEST>>DEFAULT<</DEST>>
+
+<</CHANGELOG>>
+<<COPYRIGHT>>
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+<</COPYRIGHT>>
+<<MENU>>
+0
+<</MENU>>
+<<BUILD>>
+1
+1
+1
+<</BUILD>>

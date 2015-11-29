@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="window1">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Snippets</property>
+    <child>
+      <object class="GtkFixed" id="fixed1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkButton" id="btnOk">
+            <property name="label" translatable="yes">Add Code</property>
+            <property name="use_action_appearance">False</property>
+            <property name="width_request">101</property>
+            <property name="height_request">38</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="xalign">0.52999997138977051</property>
+          </object>
+          <packing>
+            <property name="x">627</property>
+            <property name="y">593</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkTreeView" id="listSnippets">
+            <property name="width_request">207</property>
+            <property name="height_request">600</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">8</property>
+            <property name="y">13</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkTextView" id="txtSrc">
+            <property name="width_request">462</property>
+            <property name="height_request">537</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">256</property>
+            <property name="y">15</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

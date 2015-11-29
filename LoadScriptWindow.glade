@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="window1">
+    <property name="title" translatable="yes">Loading script</property>
+    <child>
+      <object class="GtkFixed" id="fixed1">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkLabel" id="lblStatus">
+            <property name="width_request">428</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="x">5</property>
+            <property name="y">14</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnClose">
+            <property name="label" translatable="yes">Close</property>
+            <property name="width_request">101</property>
+            <property name="height_request">38</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="xalign">0.52999997138977051</property>
+          </object>
+          <packing>
+            <property name="x">334</property>
+            <property name="y">88</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkProgressBar" id="progressbar">
+            <property name="width_request">386</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="x">30</property>
+            <property name="y">41</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
