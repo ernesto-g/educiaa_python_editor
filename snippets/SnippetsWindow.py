@@ -27,6 +27,7 @@ import threading
 import struct
 import time
 from SnippetsParser import SnippetsParser
+import webbrowser
 
 class SnippetsWindow():
 	def __init__(self,callback):
@@ -42,6 +43,8 @@ class SnippetsWindow():
 		self.window = builder.get_object("window1")
 		self.window.set_icon_from_file("./icons/icon.ico")
 		self.txtSrc = builder.get_object("txtSrc")
+		self.lblLink = builder.get_object("lblLink")
+		gtk.link_button_set_uri_hook(self.__linkEvent)
 		self.window.show_all()
 		
 		self.listW = self.window = builder.get_object("listSnippets")
@@ -76,4 +79,7 @@ class SnippetsWindow():
 	
 	def __okEvent(self,a1,a2):
 		self.callback([self.txtSrc.get_buffer().get_text(self.txtSrc.get_buffer().get_start_iter(),self.txtSrc.get_buffer().get_end_iter())])
-		
+	
+	def __linkEvent(self,func, data=None):
+		webbrowser.open_new("http://www.proyecto-ciaa.com.ar/devwiki/doku.php?id=desarrollo:edu-ciaa:edu-ciaa-nxp:python:bibliotecas")
+		return True

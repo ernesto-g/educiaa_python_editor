@@ -89,7 +89,7 @@ CONF_SMART_HOME_END_TYPE            =   ('Before','Disabled','After','Always')
 
 # stuff here you probably shouldn't edit
 #=======================================================================
-EDILE_VERSION = '1.0'
+EDILE_VERSION = '1.1'
 EDILE_URL = 'https://github.com/ernesto-g/educiaa_python_editor'
 EDILE_NAME = 'EDU-CIAA Python Editor'
 EDILE_DESCRIPTION = 'Editor based on EDILE 0.2 http://edile.googlecode.com '
@@ -369,8 +369,18 @@ U_I = '''
             <property name="name">about_menu_item</property>
             <property name="label" translatable="yes">_About</property>
             <signal handler="on_about_menu_item_activate" name="activate"/>
-          </object>
+          </object>  
         </child>
+       <child>
+          <object class="GtkAction" id="help_menu_item">
+            <property name="stock_id">gtk-help</property>
+            <property name="name">help_menu_item</property>
+            <property name="label" translatable="yes">_Help</property>
+            <signal handler="on_help_menu_item_activate" name="activate"/>
+          </object>  
+        </child>		
+
+		
       </object>
     </child>
     <ui>
@@ -425,7 +435,8 @@ U_I = '''
         </menu>
         <menu action="help_menu">
           <!-- <menuitem action="view_source_menu_item"/> -->
-          <menuitem action="about_menu_item"/>
+          <menuitem action="help_menu_item"/>
+		  <menuitem action="about_menu_item"/>
         </menu>
       </menubar>
     </ui>
@@ -673,6 +684,7 @@ import gtk,gobject
 import pango
 import subprocess
 import hashlib
+import webbrowser
 
 from ConfigManager import ConfigManager
 import ciaa_plugin
@@ -764,6 +776,9 @@ class Edile:
         # run functions
         print_about()
         show_about()
+
+    def on_help_menu_item_activate(self, menuitem, data=None):
+        webbrowser.open_new("http://www.proyecto-ciaa.com.ar/devwiki/doku.php?id=desarrollo:edu-ciaa:edu-ciaa-nxp:python:comenzar_programar")
 
     '''		
     # view source. displays this file in a new instance.
