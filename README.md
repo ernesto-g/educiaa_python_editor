@@ -24,6 +24,10 @@ The following programs are required:
   - pyserial-2.7.win32_py3k
   - pywin32-219.win32-py2.7
 
+##### OSX
+The following packages are required:
+  - git
+  - gtksourceview
   
 Open a terminal and write:
 
