@@ -1,19 +1,109 @@
 <?xml version="1.0"?>
 <snippets>
-    <snippet name="LED Example"><![CDATA[#LED Example
-import pyb
-led1 = pyb.LED(1)
-led1.on()		
+
+    <snippet name="Python. String to number"><![CDATA[#String to number example
+# String variables
+s1= "7"
+s2 = "3.14"
+
+#s1 to Integer
+sInt = int(s1)
+print(sInt)
+
+#s2 to Float
+sFloat = float(s2)
+print(sFloat)		
 #___________]]></snippet>
 
-    <snippet name="Switch Example"><![CDATA[#Switch Example
+    <snippet name="Python. Number to String"><![CDATA[#Number to String example
+# Integer variable
+n = 5
+#n to String
+nString = str(n)
+print(nString)		
+#___________]]></snippet>
+
+    <snippet name="Python. String concatenation"><![CDATA[#String concatenation example
+s1= "1"
+s2 = 3.14
+s3 = "PI"
+msg = s1+")"+" "+s3+" is:"+str(s2)
+print(msg)		
+#___________]]></snippet>
+	
+    <snippet name="Python. For Loop Example"><![CDATA[#For loop example
+for i in range(0,5):
+    print("Hello world "+str(i))		
+#___________]]></snippet>
+
+    <snippet name="Python. While Loop Example"><![CDATA[#While loop example
+i=0
+while i<5:
+    print("Hello world "+str(i))
+    i=i+1		
+#___________]]></snippet>
+
+    <snippet name="Python. If/Else Example"><![CDATA[#If/Else example
+flag = True
+if(flag):
+    print("Flag is True")
+else:
+    print("Flag is False")
+#___________]]></snippet>
+
+    <snippet name="Python. Bytearray Example"><![CDATA[#Bytearray example
+data = bytearray()
+data.append(0x11)
+data.append(0x22)
+print(data[0])
+print(data[1])
+#___________]]></snippet>
+
+    <snippet name="Python. List Example"><![CDATA[#List example
+l = []
+l.append(10)
+l.append(20)
+l[1]=5
+for d in l:
+    print(d)
+#___________]]></snippet>
+
+    <snippet name="Python. Dictionary Example"><![CDATA[#Dictionary example
+d= {}
+d["k1"] = "hello"
+d["k2"] = 3.14
+
+for k in d:
+    print(d[k])
+#___________]]></snippet>
+	
+    <snippet name="Hardware. LED Example"><![CDATA[#LED Example
+import pyb
+led1 = pyb.LED(1)
+while True:
+    led1.on()
+    pyb.delay(1000)
+    led1.off()
+    pyb.delay(1000)  		
+#___________]]></snippet>
+
+    <snippet name="Hardware. LED RGB Example"><![CDATA[#LED RGB Example
+import pyb
+ledRed = pyb.LED(4)
+while True:
+    for i in range(0,16):
+        ledRed.intensity(i)
+        pyb.delay(100)   		 		
+#___________]]></snippet>
+
+    <snippet name="Hardware. Switch Example"><![CDATA[#Switch Example
 import pyb
 switch1 = pyb.Switch(1)
 val = switch1.switch()
 print('sw1:'+str(val))		
 #___________]]></snippet>
 
-    <snippet name="Switch with callbacks Example"><![CDATA[#Switch with callbacks Example
+    <snippet name="Hardware. Switch with callbacks Example"><![CDATA[#Switch with callbacks Example
 import pyb
   
 def func(sw):
@@ -26,7 +116,7 @@ while True:
     pyb.delay(1000)		
 #___________]]></snippet>
 
-    <snippet name="PIN Example"><![CDATA[#PIN Example
+    <snippet name="Hardware. PIN Example"><![CDATA[#PIN Example
 import pyb
 
 p = pyb.Pin(0) #GPIO0
@@ -42,19 +132,7 @@ while True:
         pyb.delay(1000)		
 #___________]]></snippet>
 
-    <snippet name="UART-RS485 Example"><![CDATA[#UART-RS485 Example
-import pyb
-uart = pyb.UART(3)
-uart.init(115200,bits=8, parity=None, stop=1,timeout=1000, timeout_char=1000, read_buf_len=64)
-uart.write("Hello world")
-while True:
-        if uart.any():
-                print("data:")
-                data = uart.readall()
-                print(data)	
-#___________]]></snippet>
-
-    <snippet name="PIN Interrupt Example"><![CDATA[#PIN Interrupt Example
+    <snippet name="Hardware. PIN Interrupt Example"><![CDATA[#PIN Interrupt Example
 import pyb
 
 def callBack(line):
@@ -73,8 +151,19 @@ while True:
         print("tick")
 #___________]]></snippet>
 
+    <snippet name="Hardware. UART-RS485 Example"><![CDATA[#UART-RS485 Example
+import pyb
+uart = pyb.UART(3)
+uart.init(115200,bits=8, parity=None, stop=1,timeout=1000, timeout_char=1000, read_buf_len=64)
+uart.write("Hello world")
+while True:
+        if uart.any():
+                print("data:")
+                data = uart.readall()
+                print(data)	
+#___________]]></snippet>
 
-    <snippet name="DAC Example: sine output"><![CDATA[#DAC Example: sine output
+    <snippet name="Hardware. DAC Example: sine output"><![CDATA[#DAC Example: sine output
 import pyb
 import math
 
@@ -98,7 +187,7 @@ while True:
         pyb.delay(1000)
 #___________]]></snippet>
 
-    <snippet name="Timer Example"><![CDATA[#Timer Example
+    <snippet name="Hardware. Timer Example"><![CDATA[#Timer Example
 import pyb
 
 def callb(timer):
@@ -120,7 +209,7 @@ while True:
         pyb.delay(1000)
 #___________]]></snippet>
 
-    <snippet name="PWM Example"><![CDATA[#PWM Example
+    <snippet name="Hardware. PWM Example"><![CDATA[#PWM Example
 import pyb
 
 pyb.PWM.set_frequency(1000)
@@ -139,7 +228,7 @@ while True:
         pyb.delay(1000)
 #___________]]></snippet>
 
-    <snippet name="ADC Example"><![CDATA[#ADC Example
+    <snippet name="Hardware. ADC Example"><![CDATA[#ADC Example
 import pyb
 
 channel1 = pyb.ADC(1)
@@ -156,5 +245,116 @@ while True:
         pyb.delay(1000)
 #___________]]></snippet>
 
+    <snippet name="Hardware. Matrix Keyboard Example"><![CDATA[#Matrix Keyboard Example
+import pyb
+
+keyboard = pyb.Keyboard(4,4) #4 rows, 4 columns
+print(keyboard)
+
+while True:
+    key = keyboard.get_char()
+    print("key:"+str(key))
+#___________]]></snippet>
+
+    <snippet name="Hardware. LCD HD44780U Example"><![CDATA[#LCD HD44780U Example
+import pyb
+
+lcd = pyb.LCD(2,0) # 2 lines, dot format:5x8
+lcd.clear()
+
+lcd.write("Test LCD\nEDUCIAA")
+pyb.delay(1000)
+
+lcd.clear()
+lcd.config_cursor(True,True) #Cursor ON, Blink ON
+
+c=0
+while(True):
+    c=c+1   
+    lcd.goto_xy(0,0)
+    lcd.write("counter:"+str(c))
+    lcd.goto_xy(10,1)
+    lcd.write(str(c))
+    pyb.delay(1000)
+#___________]]></snippet>
+
+    <snippet name="Hardware. Internal EEPROM Example"><![CDATA[#Internal EEPROM Example
+import pyb
+eeprom = pyb.EEPROM()
+eeprom.write_byte(0x0000,0x27)
+val = eeprom.read_byte(0x0000)
+print(hex(val))
+#___________]]></snippet>
+
+    <snippet name="Hardware. SPI Master Example"><![CDATA[#SPI Master Example
+import pyb
+
+spi = pyb.SPI(8,0,10000)
+
+dataTx = bytearray()
+dataTx.append(0x55)
+dataTx.append(0x55)
+spi.write(dataTx)
+
+dataRx = spi.read(5)
+print("received:")
+print(dataRx)
+#___________]]></snippet>
+
+    <snippet name="Hardware. RTC Example"><![CDATA[#RTC Example
+import pyb
+rtc = pyb.RTC()
+
+# (year, month, day, weekday, hours, minutes, seconds)
+newDt = [2015,12,31,0,23,59,55]
+rtc.datetime(newDt)
+
+while True:
+    now = rtc.datetime()
+    print(now)   
+    pyb.delay(1000)
+#___________]]></snippet>
+
+    <snippet name="Hardware. Backup Registers Example"><![CDATA[#Backup Registers Example
+import pyb
+rtc = pyb.RTC()
+
+rtc.write_bkp_reg(0,27)
+print(rtc.read_bkp_reg(0))
+#___________]]></snippet>
+
+    <snippet name="Hardware. I2C Master Example"><![CDATA[#I2C Master Example
+import pyb
+print("Test I2C with AT24C04")
+
+i2c = pyb.I2C(100000) #100Khz
+i2c.slave_addr(0x50)
+
+def writeByte(addr,value):
+    data = bytearray()
+    data.append(addr)
+    data.append(value)
+    i2c.write(data)
+
+
+def readBytes(addr,size):
+    data = bytearray()
+    data.append(addr)    
+    i2c.write(data)    
+    return i2c.read(size)
+
+writeByte(0x00,11)
+pyb.delay(10)
+writeByte(0x01,22)
+pyb.delay(10)
+writeByte(0x02,33)
+pyb.delay(10)
+
+
+data = readBytes(0x00,16)
+print("[0]:"+str(data[0]))
+print("[1]:"+str(data[1]))
+print("[2]:"+str(data[2]))
+#___________]]></snippet>
 
 </snippets>
