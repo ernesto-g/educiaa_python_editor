@@ -7,13 +7,23 @@ Directories and files:
   - snippets: In snippets.xml file you will find examples the IDE will load as snippets
   - Main.py: Start the IDE with this file
 
-### Running the code
+### Running the code from binaries
+
+##### Linux
+In binaries/debian directory you will find a zip file with Linux executables and a deb package to install.
+
+##### Windows
+In binaries/windows directory you will find a zip file with Windows executables and a setup wizard installer.
+
+
+
+### Running the code from source
 
 ##### Linux
 The following packages are required:
   - git
   - python-gtksourceview2
- 
+  - python-gtk2
   
 
 ##### Windows
@@ -40,9 +50,17 @@ $ python Main.py
 ### Creating Windows Executable
 
 ```sh
-$ cd PyInstaller-2.1
+$ cd PyInstaller-3.1
 $ python pyinstaller.py --clean --noconsole --ico ../icons/icon.ico ../Main.py
 ```
 Executable file Main.exe will be found in Main/dist/Main directory.
-Copy files in PyInstaller-2.1/extraFiles to PyInstaller-2.1/Main/dist/Main
+Copy files in PyInstaller-3.1/extraFiles to PyInstaller-3.1/Main/dist/Main
 
+### Creating Linux Executable
+
+```sh
+$ cd PyInstaller-3.1
+$ python pyinstaller.py --clean --noconsole --ico ../icons/icon.ico ../Main.py
+```
+Executable file Main will be found in Main/dist/Main directory.
+Copy files in PyInstaller-3.1/extraFiles to PyInstaller-3.1/Main/dist/Main
