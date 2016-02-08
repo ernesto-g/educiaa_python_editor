@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "EDU-CIAA Python Editor"
-#define MyAppVersion "1.0"
+#define MyAppVersion "1.1"
 #define MyAppPublisher "CIAA Project"
 #define MyAppURL "http://www.proyecto-ciaa.com.ar"
 #define MyAppExeName "Main.exe"
@@ -21,10 +21,10 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
-LicenseFile=J:\educiaa\ide\educiaa_python_editor\LICENSE.txt
-OutputDir=J:\educiaa\ide\educiaa_python_editor\binaries
+LicenseFile=G:\pythonEditor2\educiaa_python_editor\LICENSE.txt
+OutputDir=G:\pythonEditor2\educiaa_python_editor\binaries
 OutputBaseFilename=setupWindows
-SetupIconFile=J:\educiaa\ide\educiaa_python_editor\icons\icon.ico
+SetupIconFile=G:\pythonEditor2\educiaa_python_editor\icons\icon.ico
 Compression=lzma
 SolidCompression=yes
 
@@ -37,7 +37,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "J:\educiaa\ide\educiaa_python_editor\binaries\bin_1.0\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+Source: "G:\pythonEditor2\educiaa_python_editor\binaries\windows\bin_1.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

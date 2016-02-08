@@ -43,5 +43,6 @@ $ python Main.py
 $ cd PyInstaller-2.1
 $ python pyinstaller.py --clean --noconsole --ico ../icons/icon.ico ../Main.py
 ```
-Executable file Main.exe will be found in Main/dist directory.
+Executable file Main.exe will be found in Main/dist/Main directory.
+Copy files in PyInstaller-2.1/extraFiles to PyInstaller-2.1/Main/dist/Main
 

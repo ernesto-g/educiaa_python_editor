@@ -22,19 +22,7 @@
           </object>
           <packing>
             <property name="x">627</property>
-            <property name="y">593</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkTreeView" id="listSnippets">
-            <property name="width_request">207</property>
-            <property name="height_request">600</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-          </object>
-          <packing>
-            <property name="x">8</property>
-            <property name="y">13</property>
+            <property name="y">598</property>
           </packing>
         </child>
         <child>
@@ -47,6 +35,47 @@
           <packing>
             <property name="x">256</property>
             <property name="y">15</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="scrolledwindow1">
+            <property name="width_request">220</property>
+            <property name="height_request">537</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">automatic</property>
+            <property name="vscrollbar_policy">automatic</property>
+            <child>
+              <object class="GtkTreeView" id="listSnippets">
+                <property name="width_request">207</property>
+                <property name="height_request">600</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">15</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLinkButton" id="lblLink">
+            <property name="label" translatable="yes">http://www.proyecto-ciaa.com.ar/devwiki/doku.php?id=desarrollo:edu-ciaa:edu-ciaa-nxp:python:bibliotecas</property>
+            <property name="use_action_appearance">False</property>
+            <property name="width_request">712</property>
+            <property name="height_request">27</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="has_tooltip">True</property>
+            <property name="relief">none</property>
+            <property name="xalign">0</property>
+            <property name="uri">http://www.proyecto-ciaa.com.ar/devwiki/doku.php?id=desarrollo:edu-ciaa:edu-ciaa-nxp:python:bibliotecas</property>
+          </object>
+          <packing>
+            <property name="x">9</property>
+            <property name="y">560</property>
           </packing>
         </child>
       </object>
