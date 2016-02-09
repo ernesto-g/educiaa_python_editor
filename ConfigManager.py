@@ -35,7 +35,7 @@ class ConfigManager(object):
 			self.homedir = shell.SHGetFolderPath(0, shellcon.CSIDL_APPDATA, 0, 0)
 		except ImportError:
 			self.homedir = os.path.expanduser("~")		
-		self.homedir = os.path.join(self.homedir,"educiaa-python-editor")
+		self.homedir = os.path.join(self.homedir,".educiaa-python-editor")
 		if not os.path.exists(self.homedir):
 			os.makedirs(self.homedir)
 		#print("Home dir:"+self.homedir)
