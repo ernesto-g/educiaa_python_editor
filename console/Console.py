@@ -29,14 +29,14 @@ import time
 import datetime
 
 class Console(gtk.Window):
-	def __init__(self):
+	def __init__(self,basePath):
 		super(Console, self).__init__()
 		self.connect("destroy", self.__closeConsole)
 		self.connect('key_press_event', self.__onKeyPressEvent)
 		self.set_size_request(600, 400)
 		self.set_position(gtk.WIN_POS_CENTER)
 		self.set_title("EDU-CIAA Serial Console")
-		self.set_icon_from_file("./icons/icon.ico")
+		self.set_icon_from_file(basePath+"/icons/icon.ico")
 		
 		sw = gtk.ScrolledWindow()
 		self.sw=sw

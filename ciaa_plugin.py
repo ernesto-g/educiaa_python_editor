@@ -38,7 +38,7 @@ class mnu_EDUCIAA:
 		self.interface=None
 		
 	def item_Console(self,menuItem,interface):
-		self.console = Console()
+		self.console = Console(interface.get_base_path())
 		config = self.__getConfigData()
 			
 		if self.console.showConsole(config["port"]):
@@ -57,17 +57,17 @@ class mnu_EDUCIAA:
 		
 		if self.loadScriptWindow==None:
 			protocol = Protocol(config["port"])		
-			self.loadScriptWindow = LoadScriptWindow(protocol,interface.get_filename(),self.__loadScriptWindowCloseEvent) # show status window
+			self.loadScriptWindow = LoadScriptWindow(protocol,interface.get_filename(),self.__loadScriptWindowCloseEvent,interface.get_base_path()) # show status window
 	
 
 	def item_Snippets(self,menuItem,interface):
 		self.interface=interface
-		snippetsW = SnippetsWindow(self.__callbackInsertSnippet)
+		snippetsW = SnippetsWindow(self.__callbackInsertSnippet,interface.get_base_path())
 	
 		
 	def item_Configuration(self,menuItem,interface):
 		config = self.configManager.readConfig()
-		configW = ConfigWindow(self.__callbackPort,config["port"]) # show config window
+		configW = ConfigWindow(self.__callbackPort,config["port"],interface.get_base_path()) # show config window
 		
 
 	def __callbackInsertSnippet(self,data):

@@ -30,18 +30,18 @@ from SnippetsParser import SnippetsParser
 import webbrowser
 
 class SnippetsWindow():
-	def __init__(self,callback):
+	def __init__(self,callback,basePath):
 		self.callback=callback
 			
 		try:
 			builder = gtk.Builder()
-			builder.add_from_file("./snippets/SnippetsWindow.glade")
+			builder.add_from_file(basePath+"/snippets/SnippetsWindow.glade")
 		except Exception,e:
 			print(e)
 			return
 			
 		self.window = builder.get_object("window1")
-		self.window.set_icon_from_file("./icons/icon.ico")
+		self.window.set_icon_from_file(basePath+"/icons/icon.ico")
 		self.txtSrc = builder.get_object("txtSrc")
 		self.lblLink = builder.get_object("lblLink")
 		gtk.link_button_set_uri_hook(self.__linkEvent)
@@ -50,7 +50,7 @@ class SnippetsWindow():
 		self.listW = self.window = builder.get_object("listSnippets")
 		store = gtk.ListStore(str,int,str)
 		parser = SnippetsParser()
-		root = parser.parseSnippets('./snippets/snippets.xml')
+		root = parser.parseSnippets(basePath+'/snippets/snippets.xml')
 		for child in root:		
 			store.append([child.attrib["name"],0,child.text])
 		

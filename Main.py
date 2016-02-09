@@ -35,7 +35,14 @@
 # edit default configuration here
 #=======================================================================
 
-CONF_FONT                           =       "sans 10"
+import sys
+import os
+BASE_PATH,filename = os.path.split(sys.argv[0])
+if(BASE_PATH==""):
+    BASE_PATH="."
+
+	
+CONF_FONT                           =       "monospace 10"
 CONF_HIGHLIGHT_CURRENT_LINE         =       True
 CONF_HIGHLIGHT_MATCHING_BRACKETS    =       True
 CONF_OVERWRITE                      =       False              # insert/overwrite mode
@@ -89,7 +96,7 @@ CONF_SMART_HOME_END_TYPE            =   ('Before','Disabled','After','Always')
 
 # stuff here you probably shouldn't edit
 #=======================================================================
-EDILE_VERSION = '1.1'
+EDILE_VERSION = '1.2'
 EDILE_URL = 'https://github.com/ernesto-g/educiaa_python_editor'
 EDILE_NAME = 'EDU-CIAA Python Editor'
 EDILE_DESCRIPTION = 'Editor based on EDILE 0.2 http://edile.googlecode.com '
@@ -672,8 +679,7 @@ SEARCH_UI = '''
 
 
 
-import sys
-import os
+
 import imp,types,tempfile
 import string
 #import urlparse
@@ -691,7 +697,7 @@ import ciaa_plugin
 from optparse import OptionParser
 import time
 
-gtk.rc_parse('./themes/Mac4Lin_GTK_v0.4/gtk-2.0/gtkrc')
+gtk.rc_parse(BASE_PATH+'/themes/Mac4Lin_GTK_v0.4/gtk-2.0/gtkrc')
 
 # prints about info from global vars to console
 def print_about():
@@ -722,7 +728,7 @@ class splashScreen():
         #self.lbl = gtk.Label("This shouldn't take too long... :)")
         #self.lbl.set_alignment(0, 0.5)
         self.image = gtk.Image()
-        self.image.set_from_file("./splash.png")
+        self.image.set_from_file(BASE_PATH+"/splash.png")
         #main_vbox.pack_start(self.lbl, True, True)
         main_vbox.pack_start(self.image, True, True)
         self.window.show_all()
@@ -754,8 +760,8 @@ class Edile:
             about_dialog.set_website(EDILE_URL)
             about_dialog.set_comments(EDILE_DESCRIPTION)
             #about_dialog.set_authors(EDILE_AUTHORS)
-            #about_dialog.set_logo_icon_name(gtk.STOCK_EDIT)
-            img = gtk.gdk.pixbuf_new_from_file_at_size("./splash.png", 80, 45)
+            #about_dialog.set_logo_icon_name(gtk.STOCK_EDIT)	
+            img = gtk.gdk.pixbuf_new_from_file_at_size(os.path.join(BASE_PATH,"splash.png"), 80, 45)
             about_dialog.set_logo(img)
 
             # callbacks for destroying the about dialog
@@ -1820,6 +1826,9 @@ class Edile:
 
         def get_filename(self):
             return self.parent.filename
+			
+        def get_base_path(self):
+            return BASE_PATH
             
 
     def on_drag_motion(self,wid, context, x, y, time):
@@ -2226,7 +2235,7 @@ class Edile:
 
 		# get the widgets which will be referenced in callbacks
 		self.window = builder.get_object("window")
-		self.window.set_icon_from_file("./icons/icon.ico")
+		self.window.set_icon_from_file(BASE_PATH+"/icons/icon.ico")
 		self.statusbar = builder.get_object("statusbar")
 		self.text_view = builder.get_object("text_view")
 		self.scroll_view = builder.get_object("scrolledwindow")
@@ -2249,19 +2258,19 @@ class Edile:
 		savetb.set_label("Save")
 		loadScriptb = gtk.ToolButton()
 		icon = gtk.Image()
-		icon.set_from_file("./icons/loadScript.png")
+		icon.set_from_file(BASE_PATH+"/icons/loadScript.png")
 		loadScriptb.set_icon_widget(icon)
 		loadScriptb.set_label("Load Script")
 		
 		terminaltb = gtk.ToolButton()
 		icon = gtk.Image()
-		icon.set_from_file("./icons/terminal.png")
+		icon.set_from_file(BASE_PATH+"/icons/terminal.png")
 		terminaltb.set_icon_widget(icon)
 		terminaltb.set_label("Terminal")
 		
 		snippetstb = gtk.ToolButton()
 		icon = gtk.Image()
-		icon.set_from_file("./icons/snippets.png")
+		icon.set_from_file(BASE_PATH+"/icons/snippets.png")
 		snippetstb.set_icon_widget(icon)
 		snippetstb.set_label("Snippets")
 		sep = gtk.SeparatorToolItem()	

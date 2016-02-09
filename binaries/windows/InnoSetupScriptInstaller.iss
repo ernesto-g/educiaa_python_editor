@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "EDU-CIAA Python Editor"
-#define MyAppVersion "1.1"
+#define MyAppVersion "1.2"
 #define MyAppPublisher "CIAA Project"
 #define MyAppURL "http://www.proyecto-ciaa.com.ar"
 #define MyAppExeName "Main.exe"
@@ -37,7 +37,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "G:\pythonEditor2\educiaa_python_editor\binaries\windows\bin_1.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+Source: "G:\pythonEditor2\educiaa_python_editor\binaries\windows\bin_1.2\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

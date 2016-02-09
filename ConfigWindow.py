@@ -29,7 +29,7 @@ import time
 import serial.tools.list_ports
 
 class ConfigWindow():
-	def __init__(self,callback,currentPort):
+	def __init__(self,callback,currentPort,basePath):
 		self.callback=callback
 		
 		self.ports = list(serial.tools.list_ports.comports())
@@ -37,13 +37,13 @@ class ConfigWindow():
 		
 		try:
 			builder = gtk.Builder()
-			builder.add_from_file("./ConfigWindow.glade")
+			builder.add_from_file(basePath+"/ConfigWindow.glade")
 		except Exception,e:
 			print(e)
 			return
 			
 		self.window = builder.get_object("window1")
-		self.window.set_icon_from_file("./icons/icon.ico")
+		self.window.set_icon_from_file(basePath+"/icons/icon.ico")
 		self.window.show_all()
 
 		#Populate combobox

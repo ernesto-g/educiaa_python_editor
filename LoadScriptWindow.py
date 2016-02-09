@@ -26,18 +26,18 @@ import threading
 import time
 
 class LoadScriptWindow():
-	def __init__(self,protocol,fileName,loadScriptWindowCloseEventCallback):	
+	def __init__(self,protocol,fileName,loadScriptWindowCloseEventCallback,basePath):	
 		
 		self.loadScriptWindowCloseEventCallback=loadScriptWindowCloseEventCallback
 		try:
 			builder = gtk.Builder()
-			builder.add_from_file("./LoadScriptWindow.glade")
+			builder.add_from_file(basePath+"/LoadScriptWindow.glade")
 		except Exception,e:
 			print(e)
 			return
 			
 		self.window = builder.get_object("window1")
-		self.window.set_icon_from_file("./icons/icon.ico")
+		self.window.set_icon_from_file(basePath+"/icons/icon.ico")
 		self.window.show_all()
 		self.window.connect("delete_event", self.__closeBtnEvent)	
 		self.window.connect("destroy", self.__closeBtnEvent)	

@@ -23,15 +23,32 @@
 from ConfigParser import SafeConfigParser
 from ConfigParser import RawConfigParser
 from ConfigParser import SafeConfigParser
+import os
+import sys
 
+CONFIG_FILENAME = ".educiaapythoneditorconfig.dat"
 class ConfigManager(object):
 
 	def __init__(self):
-		pass
+		try:
+			from win32com.shell import shellcon, shell            
+			self.homedir = shell.SHGetFolderPath(0, shellcon.CSIDL_APPDATA, 0, 0)
+		except ImportError:
+			self.homedir = os.path.expanduser("~")		
+		self.homedir = os.path.join(self.homedir,"educiaa-python-editor")
+		if not os.path.exists(self.homedir):
+			os.makedirs(self.homedir)
+		#print("Home dir:"+self.homedir)
+		if not os.path.exists(os.path.join(self.homedir,CONFIG_FILENAME)):
+			if sys.platform.startswith('win32'):
+				self.writeConfig("COM1")
+			else:
+				self.writeConfig("ttyUSB0")
+		
 		
 	def readConfig(self):
 		parser=SafeConfigParser()
-		parser.read('./config.dat')
+		parser.read(os.path.join(self.homedir,CONFIG_FILENAME))
   
 		port = parser.get("Serial","port")
 		print("read from file:"+port)
@@ -43,6 +60,6 @@ class ConfigManager(object):
 		config = SafeConfigParser()
 		config.add_section("Serial")
 		port = config.set("Serial","port",port)
-		with open('./config.dat', 'wb') as configfile:
+		with open(os.path.join(self.homedir,CONFIG_FILENAME), 'wb') as configfile:
 			config.write(configfile)
 	
