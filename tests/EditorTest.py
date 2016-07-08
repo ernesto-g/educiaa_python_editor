@@ -1,3 +1,25 @@
+########################################################################
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+#
+#   EDU-CIAA Python editor unit tests (2016)
+#
+#   <ernestogigliotti@gmail.com>
+#
+########################################################################
+
 from unittest import TestCase, main
 import gtk
 import time
@@ -11,6 +33,7 @@ import Main
 Main.BASE_PATH = "."
 import ciaa_plugin
 from snippets.SnippetsParser import SnippetsParser
+from ConfigManager import ConfigManager
 
 
 # Mock GUI refresh
@@ -112,6 +135,54 @@ class SnippetsParserTest(TestCase):
             i+=1
 
 
+
+class ConfigWindowTest(TestCase):
+
+    def setUp(self):
+        self.editor = Edile()
+
+    def tearDown(self):
+        pass
+
+    def test_openConfig(self):
+        plugin = ciaa_plugin.mnu_EDUCIAA()
+        plugin.item_Configuration(None,self.editor.plugin_interface)
+        portsLen = len(plugin.configW.ports)
+        self.assertGreater(portsLen,0,"Amount of serial ports in the system.")
+
+
+    def test_selectPort(self):
+        plugin = ciaa_plugin.mnu_EDUCIAA()
+        plugin.item_Configuration(None,self.editor.plugin_interface)
+        plugin.configW.buttonOk.clicked()
+
+        ps = plugin.configW.portSelected
+
+        self.assertEquals("/dev/tty",ps[0:8])
+
+
+class ConfigManagerTest(TestCase):
+
+    def setUp(self):
+        self.cm = ConfigManager()
+
+
+    def test_write(self):
+        flagOk=False
+        try:
+            self.cm.writeConfig("/dev/ttyUSB1")
+            flagOk=True
+        except:
+            pass
+
+        self.assertEqual(True,flagOk)
+
+
+    def test_read(self):
+
+        conf = self.cm.readConfig()
+
+        self.assertEqual("/dev/ttyUSB1",conf["port"])
 
 
 

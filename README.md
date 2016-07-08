@@ -67,6 +67,7 @@ Executable file Main will be found in Main/dist/Main directory.
 Copy files in PyInstaller-3.1/extraFiles to PyInstaller-3.1/Main/dist/Main
 
 ### Running unit tests (only Linux)
+Must be at least 1 serial device in the computer. (EDU-CIAA must be connected by USB)
 
 ```sh
 $ python tests/EditorTest.py

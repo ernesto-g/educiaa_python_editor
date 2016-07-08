@@ -67,7 +67,7 @@ class mnu_EDUCIAA:
 		
 	def item_Configuration(self,menuItem,interface):
 		config = self.configManager.readConfig()
-		configW = ConfigWindow(self.__callbackPort,config["port"],interface.get_base_path()) # show config window
+		self.configW = ConfigWindow(self.__callbackPort,config["port"],interface.get_base_path()) # show config window
 		
 
 	def __callbackInsertSnippet(self,data):

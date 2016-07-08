@@ -67,8 +67,8 @@ class ConfigWindow():
 		combobox.set_active(indexActive)
 		
 		#Button OK
-		buttonOk = builder.get_object("btnOk")
-		buttonOk.connect("clicked", self.__okEvent, None)
+		self.buttonOk = builder.get_object("btnOk")
+		self.buttonOk.connect("clicked", self.__okEvent, None)
 		
 	def __changedCb(self, combobox):
 		model = combobox.get_model()
