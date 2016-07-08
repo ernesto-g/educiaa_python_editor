@@ -1625,7 +1625,7 @@ class Edile:
 			the_text,the_encoding = self.guess_encoding(text_data)
 			buff.set_text(the_text)
 			self.text_encoding = the_encoding
-			print "encoding: %s"%self.text_encoding
+			#print "encoding: %s"%self.text_encoding
 
 			# reenable text view and set everything up for the user
 			buff.set_modified(False)

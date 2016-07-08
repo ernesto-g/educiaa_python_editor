@@ -24,6 +24,7 @@ The following packages are required:
   - git
   - python-gtksourceview2
   - python-gtk2
+  - python-serial
   
 
 ##### Windows
@@ -64,3 +65,10 @@ $ python pyinstaller.py --clean --noconsole --ico ../icons/icon.ico ../Main.py
 ```
 Executable file Main will be found in Main/dist/Main directory.
 Copy files in PyInstaller-3.1/extraFiles to PyInstaller-3.1/Main/dist/Main
+
+### Running unit tests (only Linux)
+
+```sh
+$ python tests/EditorTest.py
+```
+

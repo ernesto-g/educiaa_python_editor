@@ -62,7 +62,7 @@ class mnu_EDUCIAA:
 
 	def item_Snippets(self,menuItem,interface):
 		self.interface=interface
-		snippetsW = SnippetsWindow(self.__callbackInsertSnippet,interface.get_base_path())
+		self.snippetsW = SnippetsWindow(self.__callbackInsertSnippet,interface.get_base_path())
 	
 		
 	def item_Configuration(self,menuItem,interface):

@@ -153,7 +153,7 @@ while True:
 
     <snippet name="Hardware. UART-RS485 Example"><![CDATA[#UART-RS485 Example
 import pyb
-uart = pyb.UART(3)
+uart = pyb.UART(0)
 uart.init(115200,bits=8, parity=None, stop=1,timeout=1000, timeout_char=1000, read_buf_len=64)
 uart.write("Hello world")
 while True:
