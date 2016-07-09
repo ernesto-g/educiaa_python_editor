@@ -148,7 +148,7 @@ class ConfigWindowTest(TestCase):
         plugin = ciaa_plugin.mnu_EDUCIAA()
         plugin.item_Configuration(None,self.editor.plugin_interface)
         portsLen = len(plugin.configW.ports)
-        self.assertGreater(portsLen,0,"Amount of serial ports in the system.")
+        self.assertGreater(portsLen,0,"There is not a serial terminal in the system")
 
 
     def test_selectPort(self):
@@ -156,7 +156,10 @@ class ConfigWindowTest(TestCase):
         plugin.item_Configuration(None,self.editor.plugin_interface)
         plugin.configW.buttonOk.clicked()
 
-        ps = plugin.configW.portSelected
+        if hasattr(plugin.configW,"portSelected"):
+            ps = plugin.configW.portSelected
+        else:
+            self.fail("There is not a serial terminal in the system")
 
         self.assertEquals("/dev/tty",ps[0:8])
 
@@ -185,6 +188,76 @@ class ConfigManagerTest(TestCase):
         self.assertEqual("/dev/ttyUSB1",conf["port"])
 
 
+class ConsoleWindowTest(TestCase):
+
+    def setUp(self):
+        self.editor = Edile()
+        cm = ConfigManager()
+        cm.writeConfig("/dev/ttyUSB1")
+
+    def tearDown(self):
+        if self.plugin.console!=None:
+            self.plugin.console.closeConsole()
+
+
+    def test_createConsoleWindow(self):
+        self.plugin = ciaa_plugin.mnu_EDUCIAA()
+        self.plugin.item_Console(None,self.editor.plugin_interface)
+        self.assertIsNotNone(self.plugin.console)
+
+
+    def test_consoleAddText(self):
+        self.plugin = ciaa_plugin.mnu_EDUCIAA()
+        self.plugin.item_Console(None,self.editor.plugin_interface)
+        buff = self.plugin.console.textbuffer
+
+        textBefore = buff.get_text(buff.get_start_iter(), buff.get_end_iter())
+
+        self.plugin.console.addText("Test String")
+
+        textAfter = buff.get_text(buff.get_start_iter(), buff.get_end_iter())
+
+        self.assertEquals(textBefore+"Test String",textAfter)
+
+    def test_consoleRemoveText(self):
+        self.plugin = ciaa_plugin.mnu_EDUCIAA()
+        self.plugin.item_Console(None,self.editor.plugin_interface)
+        buff = self.plugin.console.textbuffer
+
+        textBefore = buff.get_text(buff.get_start_iter(), buff.get_end_iter())
+
+        self.plugin.console.removeText()
+
+        textAfter = buff.get_text(buff.get_start_iter(), buff.get_end_iter())
+
+        self.assertEquals(textBefore[0:len(textBefore)-1],textAfter)
+
+    def test_consoleRemoveTextLastLine(self):
+        self.plugin = ciaa_plugin.mnu_EDUCIAA()
+        self.plugin.item_Console(None,self.editor.plugin_interface)
+        buff = self.plugin.console.textbuffer
+
+        self.plugin.console.addText("\r\nTest String")
+        textBefore = buff.get_text(buff.get_start_iter(), buff.get_end_iter())
+
+        self.plugin.console.removeTextLastLine()
+
+        textAfter = buff.get_text(buff.get_start_iter(), buff.get_end_iter())
+
+        print("Texto antes:")
+        print(textBefore)
+        print("Texto despues")
+        print(textAfter)
+        self.assertEquals(textBefore.split("\r\n")[0]+"\r\n>>> ",textAfter)
+
+
+    def test_consoleClose(self):
+        self.plugin = ciaa_plugin.mnu_EDUCIAA()
+        self.plugin.item_Console(None,self.editor.plugin_interface)
+
+        self.plugin.console.closeConsole()
+
+        self.assertIsNone(self.plugin.console.ser)
 
 
 if __name__ == '__main__':
