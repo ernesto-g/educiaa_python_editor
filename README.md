@@ -38,7 +38,7 @@ The following programs are required:
 ##### OSX
 The following packages are required:
   - git
-  - gtksourceview
+  - gtksourceview3
   - pygtksourceview
   
 Open a terminal and write:
