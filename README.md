@@ -24,6 +24,7 @@ The following packages are required:
   - git
   - python-gtksourceview2
   - python-gtk2
+  - python-serial
   
 
 ##### Windows
@@ -38,6 +39,7 @@ The following programs are required:
 The following packages are required:
   - git
   - gtksourceview
+  - pygtksourceview
   
 Open a terminal and write:
 
