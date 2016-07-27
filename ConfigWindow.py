@@ -31,9 +31,11 @@ import serial.tools.list_ports
 class ConfigWindow():
 	def __init__(self,callback,currentPort,basePath):
 		self.callback=callback
-		
-		self.ports = list(serial.tools.list_ports.comports())
-		#print(self.ports)
+		try:
+			self.ports = list(serial.tools.list_ports.comports())
+			#print(self.ports)
+		except:
+			self.ports = list("")
 		
 		try:
 			builder = gtk.Builder()
