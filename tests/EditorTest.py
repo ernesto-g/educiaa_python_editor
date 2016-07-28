@@ -182,6 +182,10 @@ class ConfigManagerTest(TestCase):
 
 
     def test_read(self):
+        try:
+            self.cm.writeConfig("/dev/ttyUSB1")
+        except:
+            pass
 
         conf = self.cm.readConfig()
 
@@ -244,10 +248,10 @@ class ConsoleWindowTest(TestCase):
 
         textAfter = buff.get_text(buff.get_start_iter(), buff.get_end_iter())
 
-        print("Texto antes:")
-        print(textBefore)
-        print("Texto despues")
-        print(textAfter)
+        #print("Texto antes:")
+        #print(textBefore)
+        #print("Texto despues")
+        #print(textAfter)
         self.assertEquals(textBefore.split("\r\n")[0]+"\r\n>>> ",textAfter)
 
 
@@ -258,6 +262,58 @@ class ConsoleWindowTest(TestCase):
         self.plugin.console.closeConsole()
 
         self.assertIsNone(self.plugin.console.ser)
+
+
+class LoadingWindowTest(TestCase):
+    def setUp(self):
+        self.editor = Edile()
+        self.cm = ConfigManager()
+        self.cm.writeConfig("/dev/ttyUSB1")
+
+    def tearDown(self):
+        pass
+
+    def test_sendScript_without_file(self):
+        plugin = ciaa_plugin.mnu_EDUCIAA()
+        plugin.item_Load_Script(None,self.editor.plugin_interface)
+        timeout=15
+        while(plugin.loadScriptWindow.lblStatus.get_text()!="ERROR: Save File first" and timeout>0):
+            time.sleep(1)
+            print(plugin.loadScriptWindow.lblStatus.get_text())
+            timeout-=1
+
+        self.assertGreater(timeout,0)
+
+
+    def test_sendScript(self):
+        self.editor.load_file("tests/test.py")
+
+        plugin = ciaa_plugin.mnu_EDUCIAA()
+        plugin.item_Load_Script(None,self.editor.plugin_interface)
+        print(">>>>>>>>>>>>>>> PRESS RESET BUTTON MANUALLY")
+        timeout=15
+        while(plugin.loadScriptWindow.lblStatus.get_text()!="File copied" and timeout>0):
+            time.sleep(1)
+            print(plugin.loadScriptWindow.lblStatus.get_text())
+            timeout-=1
+
+        self.assertGreater(timeout,0)
+
+
+    def test_sendScript_wrong_port(self):
+        self.editor.load_file("tests/test.py")
+        self.cm.writeConfig("/dev/ttyUSBXXXXXX") # wrong port
+
+        plugin = ciaa_plugin.mnu_EDUCIAA()
+        plugin.item_Load_Script(None,self.editor.plugin_interface)
+        timeout=15
+        while(plugin.loadScriptWindow.lblStatus.get_text()!="Invalid PORT" and timeout>0):
+            time.sleep(1)
+            print(plugin.loadScriptWindow.lblStatus.get_text())
+            timeout-=1
+
+        self.assertGreater(timeout,0)
+
 
 
 if __name__ == '__main__':
