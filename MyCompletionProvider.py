@@ -17,7 +17,7 @@ class MyCompletionProvider(gobject.GObject, gtksourceview2.CompletionProvider):
     def __init__(self):
         gobject.GObject.__init__(self)
         self.keywordsModules = ["pyb","json","ModBus","os","unittest","utime"]
-        self.keywordsClasses = {"pyb":["LED","UART","Switch","Pin","ExtInt","DAC","Timer","PWM","ADC","Keyboard","LCD","EEPROM","SPI","RTC","I2C"],
+        self.keywordsClasses = {"pyb":["LED","UART","Switch","Pin","ExtInt","DAC","Timer","PWM","ADC","Keyboard","LCD","EEPROM","SPI","RTC","I2C","delay"],
                                 "utime":["time","localtime","mktime","sleep"],
                                 "ModBus":["Instrument","Slave"],
                                 "unittest":["TestException","TestCase"],
@@ -46,26 +46,40 @@ class MyCompletionProvider(gobject.GObject, gtksourceview2.CompletionProvider):
         self.completions = []
 
         type,word = self.__get_type(context)
-        print("type:"+str(type)+" word:"+str(word))
+        #print("type:"+str(type)+" word:"+str(word))
 
         kwList = []
         if type==TYPE_0 or type==TYPE_1: # from/import: show modules
             kwList = self.keywordsModules
+            if word!=None:
+                kwList = [k for k in kwList if k.startswith(word)]
 
         if type==TYPE_2 : # from xxx import: show classes
-            kwList = self.keywordsClasses["pyb"]
-
-        if type==TYPE_3 : # moduleName.: show classes
-            modName = word.split(".")[0]
+            modName = word[1]
+            word = word[3]
             if modName in self.keywordsClasses:
                 kwList = self.keywordsClasses[modName]
 
+        if type==TYPE_3 : # moduleName.: show classes
+            parts = word.split(".")
+            modName = parts[0]
+            if len(parts)>=2:
+                word = parts[1]
+
+            if modName in self.keywordsClasses:
+                kwList = self.keywordsClasses[modName]
+                if word!=None:
+                    kwList = [k for k in kwList if k.startswith(word)]
+
         if type==TYPE_4 : # =: show classes and modules
             kwList = self.keywordsModules
+            if word!=None:
+                kwList = [k for k in kwList if k.startswith(word)]
 
         if type==-1: # default
             kwList = self.keywordsPython
-
+            if word!=None:
+                kwList = [k for k in kwList if k.startswith(word)]
 
         for compl in kwList:
             self.completions.append(gtksourceview2.CompletionItem(compl, compl))
@@ -78,7 +92,7 @@ class MyCompletionProvider(gobject.GObject, gtksourceview2.CompletionProvider):
             mov_iter = end_iter.copy()
 
             iterStart = end_iter.copy()
-            iterStart.backward_line()
+            iterStart.backward_sentence_start()
             if iterStart.get_line()==0:
                 iterStart=None
 
@@ -88,8 +102,8 @@ class MyCompletionProvider(gobject.GObject, gtksourceview2.CompletionProvider):
                 left_text = buf.get_text(mov_iter2, end_iter, True)
                 return TYPE_3,left_text # moduleName.
 
-            if mov_iter.backward_search('=', gtk.TEXT_SEARCH_VISIBLE_ONLY,limit=iterStart):
-                mov_iter2, _ = mov_iter.backward_search('=', gtk.TEXT_SEARCH_VISIBLE_ONLY,limit=iterStart)
+            if mov_iter.backward_search(' =', gtk.TEXT_SEARCH_VISIBLE_ONLY,limit=iterStart):
+                mov_iter2, _ = mov_iter.backward_search(' =', gtk.TEXT_SEARCH_VISIBLE_ONLY,limit=iterStart)
                 left_text = buf.get_text(mov_iter2, end_iter, True)
                 if left_text.split(" ")[-1]=="=":
                     return TYPE_4,""
@@ -101,7 +115,7 @@ class MyCompletionProvider(gobject.GObject, gtksourceview2.CompletionProvider):
                 left_text = buf.get_text(mov_iter2, end_iter, True)
                 parts = left_text.split(" ")
                 if len(left_text.split(" "))>=3 and left_text.split(" ")[2]=="import":
-                    return TYPE_2,parts[3] # from xxx import
+                    return TYPE_2,parts # from xxx import
 
             if mov_iter.backward_search('from ', gtk.TEXT_SEARCH_VISIBLE_ONLY,limit=iterStart):
                 mov_iter2, _ = mov_iter.backward_search('from ', gtk.TEXT_SEARCH_VISIBLE_ONLY,limit=iterStart)
@@ -113,4 +127,8 @@ class MyCompletionProvider(gobject.GObject, gtksourceview2.CompletionProvider):
                 left_text = buf.get_text(mov_iter2, end_iter, True)
                 return TYPE_1,left_text.split(" ")[-1] # import
             
-        return -1,None
+
+        iterStart = end_iter.copy()
+        iterStart.backward_word_starts(1)
+        left_text = buf.get_text(iterStart, end_iter, True)
+        return -1,left_text
