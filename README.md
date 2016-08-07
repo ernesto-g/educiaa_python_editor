@@ -1,5 +1,7 @@
 # Python editor for EDU-CIAA
 
+[Spanish Version](README_ES.md)
+
 This project is based on EDILE. http://edile.googlecode.com
 
 Directories and files:
