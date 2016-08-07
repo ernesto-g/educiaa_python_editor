@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<snippets>
+
+    <snippet name="test1"><![CDATA[test content 1]]></snippet>
+    <snippet name="test2"><![CDATA[test content 2]]></snippet>
+    <snippet name="test3"><![CDATA[test content 3]]></snippet>
+
+</snippets>

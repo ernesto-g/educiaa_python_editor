@@ -14,7 +14,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 #
-#	EDU-CIAA Python editor (2015)
+#	EDU-CIAA Python editor (2015-2016)
 #	
 #	<ernestogigliotti@gmail.com>
 #
@@ -51,7 +51,7 @@ class SnippetsWindow():
 		store = gtk.ListStore(str,int,str)
 		parser = SnippetsParser()
 		root = parser.parseSnippets(basePath+'/snippets/snippets.xml')
-		for child in root:		
+		for child in root:
 			store.append([child.attrib["name"],0,child.text])
 		
 		self.listW.set_model(store)
@@ -65,8 +65,8 @@ class SnippetsWindow():
 
 		
 		#Button OK
-		buttonOk = builder.get_object("btnOk")
-		buttonOk.connect("clicked", self.__okEvent, None)
+		self.buttonOk = builder.get_object("btnOk")
+		self.buttonOk.connect("clicked", self.__okEvent, None)
 	
 	def __on_tree_selection_changed(self,selection):
 		model, treeiter = selection.get_selected()

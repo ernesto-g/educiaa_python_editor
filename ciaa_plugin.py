@@ -62,12 +62,12 @@ class mnu_EDUCIAA:
 
 	def item_Snippets(self,menuItem,interface):
 		self.interface=interface
-		snippetsW = SnippetsWindow(self.__callbackInsertSnippet,interface.get_base_path())
+		self.snippetsW = SnippetsWindow(self.__callbackInsertSnippet,interface.get_base_path())
 	
 		
 	def item_Configuration(self,menuItem,interface):
 		config = self.configManager.readConfig()
-		configW = ConfigWindow(self.__callbackPort,config["port"],interface.get_base_path()) # show config window
+		self.configW = ConfigWindow(self.__callbackPort,config["port"],interface.get_base_path()) # show config window
 		
 
 	def __callbackInsertSnippet(self,data):

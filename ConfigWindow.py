@@ -31,9 +31,11 @@ import serial.tools.list_ports
 class ConfigWindow():
 	def __init__(self,callback,currentPort,basePath):
 		self.callback=callback
-		
-		self.ports = list(serial.tools.list_ports.comports())
-		#print(self.ports)
+		try:
+			self.ports = list(serial.tools.list_ports.comports())
+			#print(self.ports)
+		except:
+			self.ports = list("")
 		
 		try:
 			builder = gtk.Builder()
@@ -67,8 +69,8 @@ class ConfigWindow():
 		combobox.set_active(indexActive)
 		
 		#Button OK
-		buttonOk = builder.get_object("btnOk")
-		buttonOk.connect("clicked", self.__okEvent, None)
+		self.buttonOk = builder.get_object("btnOk")
+		self.buttonOk.connect("clicked", self.__okEvent, None)
 		
 	def __changedCb(self, combobox):
 		model = combobox.get_model()
