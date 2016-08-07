@@ -687,6 +687,8 @@ import urllib
 #import platform
 #import gio #this breaks windows
 import gtk,gobject
+#import gtk
+
 import pango
 import subprocess
 import hashlib
@@ -714,6 +716,53 @@ CONF_WRAP_MAP = {'None':gtk.WRAP_NONE,'Character':gtk.WRAP_CHAR, 'Word':gtk.WRAP
 if using_source_view:
     # names for gtksourceview smart home end types
     CONF_SMART_HOME_END_TYPE_MAP =  {'Disabled':gtksourceview2.SMART_HOME_END_DISABLED,'Before':gtksourceview2.SMART_HOME_END_BEFORE,'After':gtksourceview2.SMART_HOME_END_AFTER,'Always':gtksourceview2.SMART_HOME_END_ALWAYS}
+
+
+#__________________________Auto complete ___________________________________________________
+"""
+import keyword
+class MyCompletionProvider(gobject.GObject, gtksourceview2.CompletionProvider):
+	def __init__(self):
+		gobject.GObject.__init__(self)
+
+	def do_get_name(self):
+		return 'PythonKeywords'
+
+	def do_get_activation(self):
+		return gtksourceview2.COMPLETION_ACTIVATION_USER_REQUESTED
+
+	def do_match(self, context):
+		return True
+
+	#def do_get_start_iter(self, context,arg):
+	#	return context.get_iter()
+
+	def do_activate_proposal(self, proposal, iter):
+		return True
+
+	def do_populate(self, context):
+		self.completions = []
+
+		end_iter = context.get_iter()
+
+		if end_iter:
+			buf = end_iter.get_buffer()
+			mov_iter = end_iter.copy()
+			if mov_iter.backward_search('=', gtk.TEXT_SEARCH_VISIBLE_ONLY):
+				mov_iter, _ = mov_iter.backward_search('=', gtk.TEXT_SEARCH_VISIBLE_ONLY)
+				left_text = buf.get_text(mov_iter, end_iter, True)
+				left_text = left_text[0:len(left_text)-1]
+			else:
+				left_text = ''
+		print("texto:"+left_text)
+		for compl in keyword.kwlist:
+			self.completions.append(gtksourceview2.CompletionItem(compl, compl))
+		context.add_proposals(self, self.completions, True)
+"""
+from MyCompletionProvider import MyCompletionProvider
+gobject.type_register(MyCompletionProvider)
+#_____________________________________________________________________________
+
 
 class splashScreen():     
     def __init__(self):        
@@ -2403,6 +2452,11 @@ class Edile:
 		self.search_window.set_position(gtk.WIN_POS_CENTER_ON_PARENT)
 		self.search_window.set_title('Find | EduCIAA Python Editor')
 		self.search_window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
+
+		#autocomplete
+		self.view_completion = self.text_view.get_completion()
+		self.view_completion.add_provider(MyCompletionProvider())
+		#___________________
 
         ###
         # load plugins
