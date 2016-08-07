@@ -16,14 +16,18 @@ class MyCompletionProvider(gobject.GObject, gtksourceview2.CompletionProvider):
 
     def __init__(self):
         gobject.GObject.__init__(self)
-        self.keywordsModules = ["pyb","json","ModBus","os","unittest","utime"]
-        self.keywordsClasses = {"pyb":["LED","UART","Switch","Pin","ExtInt","DAC","Timer","PWM","ADC","Keyboard","LCD","EEPROM","SPI","RTC","I2C","delay"],
+        self.keywordsModules = ["pyb","json","ModBus","uos","unittest","utime"]
+        self.keywordsClasses = {"pyb":["LED","UART","Switch","Pin","ExtInt","DAC","Timer","PWM","ADC","Keyboard","LCD","EEPROM","SPI","RTC","I2C","delay","millis"],
                                 "utime":["time","localtime","mktime","sleep"],
                                 "ModBus":["Instrument","Slave"],
                                 "unittest":["TestException","TestCase"],
-                                "json" : ["dumps","loads"]
+                                "json" : ["dumps","loads"],
+                                "uos": ["chdir","getcwd","listdir","mkdir","remove","rename","rmdir","stat","unlink","sync","sep","urandom"]
                                 }
         self.keywordsPython = keyword.kwlist
+        self.keywordsPython.append("None")
+        self.keywordsPython.append("True")
+        self.keywordsPython.append("False")
 
 
     def do_get_name(self):

@@ -357,4 +357,98 @@ print("[1]:"+str(data[1]))
 print("[2]:"+str(data[2]))
 #___________]]></snippet>
 
+    <snippet name="Software. utime Module"><![CDATA[#utime Example
+import pyb
+import utime
+
+print("utime Test")
+
+rtc = pyb.RTC()
+newDt = [2015,12,31,0,23,59,55]
+rtc.datetime(newDt)
+while True:
+    now = rtc.datetime()
+    print(now)
+
+    ts = utime.time()
+    print("timestamp:"+str(ts))
+    dateTimeTuple = utime.localtime(ts)
+    print(dateTimeTuple)
+    ts = utime.mktime(dateTimeTuple)
+    print("mktime timestamp:"+str(ts))
+    print("__________________________")
+
+    utime.sleep(1)
+
+#___________]]></snippet>
+
+    <snippet name="Software. ModBus Module (Master)"><![CDATA[#ModBus Master Example
+import pyb
+import ModBus
+
+uart = pyb.UART(3)
+uart.init(115200)
+
+instrument = ModBus.Instrument(uart,0x55,mode=ModBus.MODE_ASCII)
+print(instrument)
+
+while True:
+    try:
+        v = instrument.read_register(1)
+        print("Register 1 value :"+str(v))
+    except Exception as e:
+        print(e)
+    pyb.delay(1000)
+
+#___________]]></snippet>
+
+    <snippet name="Software. ModBus Module (Slave)"><![CDATA[#ModBus Slave Example
+import pyb
+import ModBus
+
+uart = pyb.UART(3)
+uart.init(115200)
+led1 = pyb.LED(1)
+
+mappedRegs = {0x4000 : 0x0000 , 0x4001 : 0x0000}
+
+modbus = ModBus.Slave(uart,0x55,mappedRegs,mode=ModBus.MODE_ASCII)
+print(modbus)
+
+print(mappedRegs)
+
+while True:
+    if modbus.receive():
+        print(mappedRegs)
+        if mappedRegs[0x4000]==0:
+            led1.off()
+        else:
+            led1.on() 
+
+#___________]]></snippet>
+
+    <snippet name="Software. Random numbers"><![CDATA[#Random numbers Example
+import uos
+
+r = uos.urandom(1) # 1 byte range
+print(r)
+
+#___________]]></snippet>
+
+    <snippet name="Software. JSON"><![CDATA[#JSON encode/decode Example
+import json
+
+dic = dict()
+dic["k1"] = "Hello"
+dic["k2"] = 27
+dic["k3"] = True
+
+s = json.dumps(dic) # dict to string
+print(s)
+
+dic2 = json.loads(s) # string to dict
+print(dic2)
+
+#___________]]></snippet>
+
 </snippets>

@@ -3,17 +3,16 @@
 This project is based on EDILE. http://edile.googlecode.com
 
 Directories and files:
-  - binaries: Here you will find executables for several Operating Systems
-  - snippets: In snippets.xml file you will find examples the IDE will load as snippets
   - Main.py: Start the IDE with this file
+  - snippets/snippets.xml: In snippets.xml file you will find examples the IDE will load as snippets
+  - LICENSE.txt: Project license
+  - tests: In this directory you will find unit tests developed for this IDE
+  - PyInstaller-3.1: Tools to generate an IDE's executable version
+
 
 ### Running the code from binaries
 
-##### Linux
-In binaries/debian directory you will find a zip file with Linux executables and a deb package to install.
-
-##### Windows
-In binaries/windows directory you will find a zip file with Windows executables and a setup wizard installer.
+Download the proper installer from releases section: https://github.com/ernesto-g/educiaa_python_editor/releases
 
 
 
@@ -47,6 +46,9 @@ $ git clone https://github.com/ernesto-g/educiaa_python_editor.git
 $ cd educiaa_python_editor
 $ python Main.py
 ```
+
+
+##Developer
 
 ### Creating Windows Executable
 
