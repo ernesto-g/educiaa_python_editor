@@ -1,0 +1,114 @@
+import json
+import time
+import threading
+import sys
+import Queue
+
+class CPUMock:
+	def __init__(self):
+		self.sws = [True,True,True,True]		
+		self.leds = [False,False,False,False,0,0,0]
+
+class PeripheralMockManager:
+	socket = None
+	cpu = CPUMock()
+	stdinQueue = Queue.Queue()
+	stdinBuffer = ""
+	stdinCondition = threading.Condition()
+
+	@staticmethod
+	def pmm_setSocket(s):
+		PeripheralMockManager.socket = s
+	@staticmethod
+	def sendData(data):
+		if PeripheralMockManager.socket!=None:
+			PeripheralMockManager.socket.send(data)
+	@staticmethod
+	def pmm_startReception():
+		if PeripheralMockManager.socket!=None:
+			t = threading.Thread(target=PeripheralMockManager.runReception)
+			t.daemon = True
+			t.start()
+	@staticmethod
+	def runReception():
+		while True:
+			data = PeripheralMockManager.socket.recv(4096)
+			data = json.loads(data)
+			if data["per"]=="Switch":
+				PeripheralMockManager.cpu.sws[data["swn"]] = data["swv"]
+			if data["per"]=="STDIN":
+				if data["data"]=="\n" or data["data"]=="\r\n":
+					PeripheralMockManager.stdinCondition.acquire()
+					PeripheralMockManager.stdinQueue.put(PeripheralMockManager.stdinBuffer)
+					PeripheralMockManager.stdinCondition.notify()
+					PeripheralMockManager.stdinCondition.release()
+					PeripheralMockManager.stdinBuffer = ""
+					PeripheralMockManager.sendData(json.dumps({"per":"STDOUT","data":data["data"]})) # echo
+				else:
+					if data["data"]=="\b":
+						if len(PeripheralMockManager.stdinBuffer)>=1:
+							PeripheralMockManager.sendData(json.dumps({"per":"STDOUT","data":"\x1b[K"})) # echo
+							PeripheralMockManager.stdinBuffer = PeripheralMockManager.stdinBuffer[0:-1]
+					else:
+						PeripheralMockManager.sendData(json.dumps({"per":"STDOUT","data":data["data"]})) # echo
+						PeripheralMockManager.stdinBuffer+=data["data"]
+
+				
+	@staticmethod
+	def updateLeds():
+		PeripheralMockManager.sendData(json.dumps({"per":"LED","data":PeripheralMockManager.cpu.leds}))
+
+	@staticmethod
+	def readStdin():
+		while True:
+			PeripheralMockManager.stdinCondition.acquire()
+			if not PeripheralMockManager.stdinQueue.empty():
+				r = PeripheralMockManager.stdinQueue.get()
+				PeripheralMockManager.stdinCondition.release()
+				return r
+			else:
+				PeripheralMockManager.stdinCondition.wait()
+				PeripheralMockManager.stdinCondition.release()
+		
+# functions
+def delay(val):
+	time.sleep(val/1000.0)
+
+# classes		
+class LED:
+	def __init__(self,ledNumber):
+		self.__ln=ledNumber		
+	def on(self):
+		PeripheralMockManager.cpu.leds[self.__ln] = True
+		PeripheralMockManager.updateLeds()
+	def off(self):
+		PeripheralMockManager.cpu.leds[self.__ln] = False
+		PeripheralMockManager.updateLeds()
+	def intensity(self,val):
+		PeripheralMockManager.cpu.leds[self.__ln] = val
+		PeripheralMockManager.updateLeds()
+
+class Switch:
+	def __init__(self,swNumber):
+		self.__sn=swNumber
+		self.__threadCallback = None
+		self.__state0 = False
+	def switch(self):
+		return PeripheralMockManager.cpu.sws[self.__sn]
+	def callback(self,fn):
+		self.__fnCallback = fn
+		if self.__threadCallback == None:
+			t = threading.Thread(target=self.__callbackPool)
+			t.daemon = True
+			t.start()
+	def __callbackPool(self):
+		while True:
+			time.sleep(0.1)
+			#print("pool estado sw")
+			if PeripheralMockManager.cpu.sws[self.__sn] == False:
+				if self.__state0==False:
+					self.__fnCallback(self)
+					self.__state0 = True
+			else:
+				self.__state0 = False
+				

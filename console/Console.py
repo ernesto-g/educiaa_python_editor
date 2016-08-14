@@ -60,11 +60,14 @@ class Console(gtk.Window):
 		self.thread=None
 		
 		
-	def showConsole(self,portPath):	
+	def showConsole(self,portPath,serialMock=None):	
 		self.show()
 		print("Opening:"+portPath)		
 		try:
-			self.ser = serial.Serial(port=portPath,baudrate=115200,timeout = 1)	
+			if serialMock!=None:
+				self.ser = serialMock
+			else:
+				self.ser = serial.Serial(port=portPath,baudrate=115200,timeout = 1)	
 			self.thread = threading.Thread(target=self.__receptionThread, args=())
 			self.thread.start()
 		except serial.SerialException, e:			
