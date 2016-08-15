@@ -30,15 +30,14 @@ if len(sys.argv) == 2:
 			timeout-=1
 			if timeout==0:
 				print("Connection error")
-				#exit()
-				sock = None
-				break
+				exit()
+				#sock = None
+				#break
 
 	pyb.PeripheralMockManager.pmm_setSocket(sock)
 	pyb.PeripheralMockManager.pmm_startReception()
 	time.sleep(1)
 	print("Start execution")
-	fout = file('out.log', 'w')
 	sys.stdout = writer()
 	sys.stdin = reader()
 

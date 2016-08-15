@@ -3,7 +3,7 @@ import sys
 import json
 from subprocess import Popen, PIPE
 import time
-from console.Console import Console
+from console.ConsoleEmulator import ConsoleEmulator
 import gtk
 import os
 import threading
@@ -14,9 +14,10 @@ if(BASE_PATH==""):
     BASE_PATH="."
 
 class EmulatorLauncher:
-	def __init__(self,console,serialMock):
+	def __init__(self,console,serialMock,file):
 		self.console = console
 		self.serialMock = serialMock
+		self.file=file
 		
 	def startServer(self):
 		self.thread = threading.Thread(target=self.__runServer, args=())
@@ -33,6 +34,7 @@ class EmulatorLauncher:
 		try:
 			print >>sys.stderr, 'connection from', client_address
 			self.serialMock.setSocket(connection)
+			self.console.setSocket(connection)
 			
 			# Receive the data in small chunks and retransmit it
 			while True:
@@ -49,11 +51,8 @@ class EmulatorLauncher:
 							data = json.loads(data)
 							if data["per"]=="STDOUT":
 								self.serialMock.insertText(data["data"])
-							elif data["per"]=="LED":
-								print("Llego info de leds")
-								connection.sendall(json.dumps({"per":"Switch","swn":1,"swv":False})) #debug
 							else:
-								connection.sendall(json.dumps({"per":"Switch","swn":1,"swv":False})) #debug
+								self.console.update(data)
 					except:
 						print("ERROR RCV")
 				else:
@@ -67,31 +66,31 @@ class EmulatorLauncher:
 	def startEmulator(self):
 		self.thread = threading.Thread(target=self.__runEmulator, args=())
 		self.thread.start()
-		
-	def __runPrintStdout(self,a):
-		while True:
-			time.sleep(1)
-			with open("test.txt", "a") as myfile:
-				myfile.write(a.read())
-	
+			
 	def __runEmulator(self):
-		#self.console.addText(" inicio while")		
-		#process = Popen(['emulator/Emulate/Emulate.exe', 'emulator/Main.py'], bufsize=1,stdout=PIPE, stdin=None)
-		#stdout, stderr = process.communicate()
-		pass
+		self.serialMock.insertText("\x15")
+		if os.name!="posix":
+			process = Popen([BASE_PATH+"/"+'emulator/Emulate/Emulate.exe', self.file], bufsize=1,stdout=PIPE, stdin=None)
+		else:
+			process = Popen(["python",BASE_PATH+"/"+'emulator/Emulate.py', self.file], bufsize=1,stdout=PIPE, stdin=None)		
+		stdout, stderr = process.communicate()
 
+
+if len(sys.argv) == 2:
+	file = sys.argv[1]
 		
-gtk.gdk.threads_init()
-c = Console(BASE_PATH)
-serialMock = SerialMock()			
+	gtk.gdk.threads_init()
+	c = ConsoleEmulator(BASE_PATH)
+	serialMock = SerialMock()			
 
-el = EmulatorLauncher(c,serialMock)
-el.startServer()
-#el.startEmulator()
+	el = EmulatorLauncher(c,serialMock,file)
+	el.startServer()
+	el.startEmulator()
 
-c.showConsole("",serialMock)
-gtk.main()
-	
+	c.showConsole("",serialMock)
+	gtk.main()
+else:
+		print("ERROR. A file must be provided")
 
 
 

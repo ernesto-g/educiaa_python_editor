@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="window1">
+    <child>
+      <object class="GtkFixed" id="fixed1">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkImage" id="image1">
+            <property name="width_request">701</property>
+            <property name="height_request">421</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">educiaa.png</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnSw1">
+            <property name="label" translatable="yes">T1</property>
+            <property name="width_request">25</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </object>
+          <packing>
+            <property name="x">642</property>
+            <property name="y">282</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnSw2">
+            <property name="label" translatable="yes">T2</property>
+            <property name="width_request">25</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </object>
+          <packing>
+            <property name="x">642</property>
+            <property name="y">224</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnSw3">
+            <property name="label" translatable="yes">T3</property>
+            <property name="width_request">25</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </object>
+          <packing>
+            <property name="x">643</property>
+            <property name="y">167</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnSw4">
+            <property name="label" translatable="yes">T4</property>
+            <property name="width_request">25</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </object>
+          <packing>
+            <property name="x">642</property>
+            <property name="y">108</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="chkLed1">
+            <property name="width_request">33</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="x">574</property>
+            <property name="y">231</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="chkLed2">
+            <property name="width_request">49</property>
+            <property name="height_request">23</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="x">573</property>
+            <property name="y">168</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="chkLed3">
+            <property name="width_request">28</property>
+            <property name="height_request">23</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="x">573</property>
+            <property name="y">111</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblRgb">
+            <property name="width_request">63</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">LED RGB</property>
+          </object>
+          <packing>
+            <property name="x">567</property>
+            <property name="y">312</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

@@ -77,7 +77,7 @@ def delay(val):
 # classes		
 class LED:
 	def __init__(self,ledNumber):
-		self.__ln=ledNumber		
+		self.__ln=ledNumber-1		
 	def on(self):
 		PeripheralMockManager.cpu.leds[self.__ln] = True
 		PeripheralMockManager.updateLeds()
@@ -90,7 +90,7 @@ class LED:
 
 class Switch:
 	def __init__(self,swNumber):
-		self.__sn=swNumber
+		self.__sn=swNumber-1
 		self.__threadCallback = None
 		self.__state0 = False
 	def switch(self):
