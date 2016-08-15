@@ -44,7 +44,14 @@ class PeripheralMockManager:
 	@staticmethod
 	def sendData(data):
 		if PeripheralMockManager.socket!=None:
-			PeripheralMockManager.socket.send(data)
+			try:
+				PeripheralMockManager.socket.send(data)
+				#try:
+				#	PeripheralMockManager.socket.close()
+				#except:
+				#	pass
+			except:
+				pass
 	@staticmethod
 	def pmm_startReception():
 		if PeripheralMockManager.socket!=None:
@@ -54,8 +61,19 @@ class PeripheralMockManager:
 	@staticmethod
 	def runReception():
 		while True:
-			data = PeripheralMockManager.socket.recv(4096)
-			data = json.loads(data)
+			try:
+				data = PeripheralMockManager.socket.recv(4096)
+			except:
+				print(">>pyb>>RCV ERROR")
+				PeripheralMockManager.socket.close()
+				return
+			
+			try:
+				data = json.loads(data)
+			except:
+				PeripheralMockManager.socket.close()
+				return
+				
 			if data["per"]=="Switch":
 				PeripheralMockManager.cpu.sws[data["swn"]] = data["swv"]
 			if data["per"]=="STDIN":

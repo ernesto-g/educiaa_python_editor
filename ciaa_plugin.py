@@ -28,6 +28,8 @@ from ConfigManager import ConfigManager
 from protocol.Protocol import Protocol
 from snippets.SnippetsWindow import SnippetsWindow
 
+#emulator
+import subprocess
 
 class mnu_EDUCIAA:
 	
@@ -36,6 +38,7 @@ class mnu_EDUCIAA:
 		self.console = None
 		self.loadScriptWindow = None
 		self.interface=None
+		self.p = None
 		
 	def item_Console(self,menuItem,interface):
 		self.console = Console(interface.get_base_path())
@@ -49,6 +52,14 @@ class mnu_EDUCIAA:
 			self.console = None
 	
 	def item_Load_Script(self,menuItem,interface):
+		#debug!
+		#if self.p!=None:
+		#	self.p.kill()
+		#	time.sleep(0.5)
+			
+		self.p = subprocess.Popen([".\PyInstaller-3.1\EmulatorLauncher\dist\EmulatorLauncher\EmulatorLauncher.exe", interface.get_filename()])
+		#self.p.communicate()
+		"""
 		if self.console!=None:
 			self.console.closeConsole()
 			self.console = None
@@ -58,7 +69,7 @@ class mnu_EDUCIAA:
 		if self.loadScriptWindow==None:
 			protocol = Protocol(config["port"])		
 			self.loadScriptWindow = LoadScriptWindow(protocol,interface.get_filename(),self.__loadScriptWindowCloseEvent,interface.get_base_path()) # show status window
-	
+		"""
 
 	def item_Snippets(self,menuItem,interface):
 		self.interface=interface

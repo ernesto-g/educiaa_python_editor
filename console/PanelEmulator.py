@@ -102,6 +102,7 @@ class PanelEmulator:
 
 	def update(self,data):
 		if data["per"]=="LED":
+			gtk.gdk.threads_enter()			
 			ledsStatus = data["data"]
 			self.chkLed1.set_active(ledsStatus[0])
 			self.chkLed2.set_active(ledsStatus[1])
@@ -119,6 +120,7 @@ class PanelEmulator:
 			colorStr+= "%0.2X" % g
 			colorStr+= "%0.2X" % b
 			self.lblRgb.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse('#'+colorStr))
+			gtk.gdk.threads_leave()
 	
 		
 	def setSocket(self,socket):

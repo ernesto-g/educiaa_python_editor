@@ -44,12 +44,12 @@ class Emulate:
 	def __init__(self):
 		pass
 		
-	def start(self,file):	
+	def start(self,file,port):	
 		timeout=3
 		while True:
 			try:
 				sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-				server_address = ('localhost', 10000)
+				server_address = ('localhost', port)
 				print("Connecting...")
 				sock.connect(server_address)
 				break;

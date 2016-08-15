@@ -46,10 +46,19 @@ class EmulatorLauncher:
 		self.threadServer.setDaemon(1)
 		self.threadServer.start()
 	def __runServer(self):
-		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		server_address = ('localhost', 10000)
-		print >>sys.stderr, 'starting up on %s port %s' % server_address
-		sock.bind(server_address)
+		self.port=10000
+		self.flagConnOk=False
+		while True:
+			try:
+				sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+				server_address = ('localhost', self.port)
+				print >>sys.stderr, 'starting up on %s port %s' % server_address
+				sock.bind(server_address)
+				break
+			except:
+				time.sleep(0.1)
+				self.port+=1
+		self.flagConnOk=True	
 		sock.listen(1)
 		# Wait for a connection
 		print >>sys.stderr, 'waiting for a connection'
@@ -59,7 +68,7 @@ class EmulatorLauncher:
 			self.serialMock.setSocket(connection)
 			self.panelEmulator.setSocket(connection)
 			self.panelEmulator.setEmulatorLauncher(self)
-			
+			self.connection = connection
 			while True:
 				data = connection.recv(4096)
 				if data:
@@ -80,7 +89,8 @@ class EmulatorLauncher:
 				else:
 					print >>sys.stderr, 'no more data from', client_address
 					break
-				
+		except:
+			connection.close()				
 		finally:
 			# Clean up the connection
 			connection.close()		
@@ -93,12 +103,15 @@ class EmulatorLauncher:
 	def __runEmulator(self):
 		self.serialMock.insertText("\x15")
 		e = Emulate()
-		e.start(self.file)
+		while self.flagConnOk==False:
+			time.sleep(1)
+		e.start(self.file,self.port)
 
 	def closeAll(self):
+		self.connection.close()
 		gtk.main_quit()
 
-		
+
 if len(sys.argv) == 2:
 	file = sys.argv[1]
 		
@@ -114,6 +127,5 @@ if len(sys.argv) == 2:
 	gtk.main()
 else:
 		print("ERROR. A file must be provided")
-
 
 
