@@ -30,10 +30,11 @@ import datetime
 from console.Console import Console
 import json
 
-class ConsoleEmulator:
+class PanelEmulator:
 	def __init__(self,basePath):
 		self.c = Console(basePath)
 		self.__socket = None
+		self.__emulatorLauncher = None
 		
 		try:
 			builder = gtk.Builder()
@@ -43,6 +44,7 @@ class ConsoleEmulator:
 			return
 			
 		self.window = builder.get_object("window1")
+		self.window.connect("destroy", self.__closePanel)
 		self.window.set_icon_from_file(basePath+"/icons/icon.ico")
 		self.window.set_title("EDU-CIAA Emulator Panel")
 
@@ -121,4 +123,12 @@ class ConsoleEmulator:
 		
 	def setSocket(self,socket):
 		self.__socket = socket
-		
+	
+	def __closePanel(self,arg):
+		self.c.closeConsole()
+		self.window.destroy()
+		if self.__emulatorLauncher!=None:
+			self.__emulatorLauncher.closeAll()
+			
+	def setEmulatorLauncher(self,el):
+		self.__emulatorLauncher = el

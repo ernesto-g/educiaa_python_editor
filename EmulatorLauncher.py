@@ -1,27 +1,50 @@
+########################################################################
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+#
+#	EDU-CIAA Python editor (2016)
+#	
+#	<ernestogigliotti@gmail.com>
+#
+########################################################################
+
 import socket
 import sys
 import json
-from subprocess import Popen, PIPE
 import time
-from console.ConsoleEmulator import ConsoleEmulator
+from console.PanelEmulator import PanelEmulator
 import gtk
 import os
 import threading
 from SerialMock import SerialMock
+from emulator.Emulate import Emulate
 
 BASE_PATH,filename = os.path.split(sys.argv[0])
 if(BASE_PATH==""):
     BASE_PATH="."
 
 class EmulatorLauncher:
-	def __init__(self,console,serialMock,file):
-		self.console = console
+	def __init__(self,panelEm,serialMock,file):
+		self.panelEmulator = panelEm
 		self.serialMock = serialMock
 		self.file=file
 		
 	def startServer(self):
-		self.thread = threading.Thread(target=self.__runServer, args=())
-		self.thread.start()
+		self.threadServer = threading.Thread(target=self.__runServer, args=())
+		self.threadServer.setDaemon(1)
+		self.threadServer.start()
 	def __runServer(self):
 		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		server_address = ('localhost', 10000)
@@ -34,12 +57,11 @@ class EmulatorLauncher:
 		try:
 			print >>sys.stderr, 'connection from', client_address
 			self.serialMock.setSocket(connection)
-			self.console.setSocket(connection)
+			self.panelEmulator.setSocket(connection)
+			self.panelEmulator.setEmulatorLauncher(self)
 			
-			# Receive the data in small chunks and retransmit it
 			while True:
 				data = connection.recv(4096)
-				#print >>sys.stderr, 'received "%s"' % data
 				if data:
 					try:
 						parts = data.split("}{")
@@ -52,7 +74,7 @@ class EmulatorLauncher:
 							if data["per"]=="STDOUT":
 								self.serialMock.insertText(data["data"])
 							else:
-								self.console.update(data)
+								self.panelEmulator.update(data)
 					except:
 						print("ERROR RCV")
 				else:
@@ -64,23 +86,24 @@ class EmulatorLauncher:
 			connection.close()		
 
 	def startEmulator(self):
-		self.thread = threading.Thread(target=self.__runEmulator, args=())
-		self.thread.start()
+		self.threadEmulator = threading.Thread(target=self.__runEmulator, args=())
+		self.threadEmulator.setDaemon(1)
+		self.threadEmulator.start()
 			
 	def __runEmulator(self):
 		self.serialMock.insertText("\x15")
-		if os.name!="posix":
-			process = Popen([BASE_PATH+"/"+'emulator/Emulate/Emulate.exe', self.file], bufsize=1,stdout=PIPE, stdin=None)
-		else:
-			process = Popen(["python",BASE_PATH+"/"+'emulator/Emulate.py', self.file], bufsize=1,stdout=PIPE, stdin=None)		
-		stdout, stderr = process.communicate()
+		e = Emulate()
+		e.start(self.file)
 
+	def closeAll(self):
+		gtk.main_quit()
 
+		
 if len(sys.argv) == 2:
 	file = sys.argv[1]
 		
 	gtk.gdk.threads_init()
-	c = ConsoleEmulator(BASE_PATH)
+	c = PanelEmulator(BASE_PATH)
 	serialMock = SerialMock()			
 
 	el = EmulatorLauncher(c,serialMock,file)
