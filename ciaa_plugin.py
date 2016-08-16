@@ -52,24 +52,15 @@ class mnu_EDUCIAA:
 			self.console = None
 	
 	def item_Load_Script(self,menuItem,interface):
-		#debug!
-		#if self.p!=None:
-		#	self.p.kill()
-		#	time.sleep(0.5)
-			
-		self.p = subprocess.Popen([".\PyInstaller-3.1\EmulatorLauncher\dist\EmulatorLauncher\EmulatorLauncher.exe", interface.get_filename()])
-		#self.p.communicate()
-		"""
 		if self.console!=None:
 			self.console.closeConsole()
 			self.console = None
-			
+
 		config = self.__getConfigData()			
-		
+					
 		if self.loadScriptWindow==None:
 			protocol = Protocol(config["port"])		
 			self.loadScriptWindow = LoadScriptWindow(protocol,interface.get_filename(),self.__loadScriptWindowCloseEvent,interface.get_base_path()) # show status window
-		"""
 
 	def item_Snippets(self,menuItem,interface):
 		self.interface=interface
@@ -78,15 +69,21 @@ class mnu_EDUCIAA:
 		
 	def item_Configuration(self,menuItem,interface):
 		config = self.configManager.readConfig()
-		self.configW = ConfigWindow(self.__callbackPort,config["port"],interface.get_base_path()) # show config window
+		print(config)
+		self.configW = ConfigWindow(self.__callbackPort,config["port"],interface.get_base_path(),config["pathEmulator"]) # show config window
 		
+	def item_Emulator(self,menuItem,interface):
+		config = self.__getConfigData()						
+		self.p = subprocess.Popen([config["pathEmulator"], interface.get_filename()])
+		#self.p.communicate()
 
+		
 	def __callbackInsertSnippet(self,data):
 		code = data[0]
 		self.interface.insert(code)
 	
 	def __callbackPort(self,data):			
-		self.configManager.writeConfig(data[0])
+		self.configManager.writeConfig(data[0],data[1])
 	
 	def __getConfigData(self):
 		config = self.configManager.readConfig()

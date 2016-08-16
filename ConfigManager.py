@@ -51,15 +51,24 @@ class ConfigManager(object):
 		parser.read(os.path.join(self.homedir,CONFIG_FILENAME))
   
 		port = parser.get("Serial","port")
+		pathEmulator = ""
+		try:
+			pathEmulator = parser.get("Emulator","path")
+		except:
+			pass
 		print("read from file:"+port)
-		return {"port":port}
+		return {"port":port,"pathEmulator":pathEmulator}
 		
 		
 		
-	def writeConfig(self,port):
+	def writeConfig(self,port,pathEmulator):
 		config = SafeConfigParser()
 		config.add_section("Serial")
 		port = config.set("Serial","port",port)
+
+		config.add_section("Emulator")
+		port = config.set("Emulator","path",pathEmulator)
+		
 		with open(os.path.join(self.homedir,CONFIG_FILENAME), 'wb') as configfile:
 			config.write(configfile)
 	

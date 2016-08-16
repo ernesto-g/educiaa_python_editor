@@ -29,7 +29,7 @@ import time
 import serial.tools.list_ports
 
 class ConfigWindow():
-	def __init__(self,callback,currentPort,basePath):
+	def __init__(self,callback,currentPort,basePath,currentEmulatorPath):
 		self.callback=callback
 		try:
 			self.ports = list(serial.tools.list_ports.comports())
@@ -48,6 +48,7 @@ class ConfigWindow():
 		self.window.set_icon_from_file(basePath+"/icons/icon.ico")
 		self.window.show_all()
 
+		self.portSelected = currentPort
 		#Populate combobox
 		combobox = builder.get_object("comboPorts")
 		liststore = gtk.ListStore(str)
@@ -72,6 +73,10 @@ class ConfigWindow():
 		self.buttonOk = builder.get_object("btnOk")
 		self.buttonOk.connect("clicked", self.__okEvent, None)
 		
+		#path field
+		self.editTextPath = builder.get_object("editTextPath")
+		self.editTextPath.set_text(currentEmulatorPath)
+		
 	def __changedCb(self, combobox):
 		model = combobox.get_model()
 		index = combobox.get_active()
@@ -81,5 +86,5 @@ class ConfigWindow():
 		return
 			
 	def __okEvent(self,a1,a2):
-		self.callback([self.portSelected])
+		self.callback([self.portSelected,self.editTextPath.get_text()])
 		self.window.destroy()

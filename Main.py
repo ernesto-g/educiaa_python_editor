@@ -2130,6 +2130,11 @@ class Edile:
 		the_menu.append(menu_item)
 		self.plugin_menu_items.append(menu_item)
 		
+		menu_item = gtk.MenuItem("Emulator",False)
+		menu_item.connect('activate',plugin.item_Emulator,self.plugin_interface)
+		the_menu.append(menu_item)
+		self.plugin_menu_items.append(menu_item)
+		
 		agr = gtk.AccelGroup()
 		self.window.add_accel_group(agr)
 		
