@@ -1,5 +1,5 @@
 *.pyc
-console/*.pyc
-protocol/*.pyc
-snippets/*.pyc
+./console/*.pyc
+./protocol/*.pyc
+./snippets/*.pyc
 
