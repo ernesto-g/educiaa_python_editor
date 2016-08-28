@@ -173,7 +173,7 @@ class ConfigManagerTest(TestCase):
     def test_write(self):
         flagOk=False
         try:
-            self.cm.writeConfig("/dev/ttyUSB1")
+            self.cm.writeConfig("/dev/ttyUSB1","")
             flagOk=True
         except:
             pass
@@ -183,7 +183,7 @@ class ConfigManagerTest(TestCase):
 
     def test_read(self):
         try:
-            self.cm.writeConfig("/dev/ttyUSB1")
+            self.cm.writeConfig("/dev/ttyUSB1","")
         except:
             pass
 
@@ -197,7 +197,7 @@ class ConsoleWindowTest(TestCase):
     def setUp(self):
         self.editor = Edile()
         cm = ConfigManager()
-        cm.writeConfig("/dev/ttyUSB1")
+        cm.writeConfig("/dev/ttyUSB1","")
 
     def tearDown(self):
         if self.plugin.console!=None:
@@ -268,7 +268,7 @@ class LoadingWindowTest(TestCase):
     def setUp(self):
         self.editor = Edile()
         self.cm = ConfigManager()
-        self.cm.writeConfig("/dev/ttyUSB1")
+        self.cm.writeConfig("/dev/ttyUSB1","")
 
     def tearDown(self):
         pass
@@ -302,7 +302,7 @@ class LoadingWindowTest(TestCase):
 
     def test_sendScript_wrong_port(self):
         self.editor.load_file("tests/test.py")
-        self.cm.writeConfig("/dev/ttyUSBXXXXXX") # wrong port
+        self.cm.writeConfig("/dev/ttyUSBXXXXXX","") # wrong port
 
         plugin = ciaa_plugin.mnu_EDUCIAA()
         plugin.item_Load_Script(None,self.editor.plugin_interface)
