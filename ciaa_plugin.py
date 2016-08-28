@@ -30,6 +30,7 @@ from snippets.SnippetsWindow import SnippetsWindow
 
 #emulator
 import subprocess
+import signal
 
 class mnu_EDUCIAA:
 	
@@ -72,10 +73,20 @@ class mnu_EDUCIAA:
 		print(config)
 		self.configW = ConfigWindow(self.__callbackPort,config["port"],interface.get_base_path(),config["pathEmulator"]) # show config window
 		
+
 	def item_Emulator(self,menuItem,interface):
-		config = self.__getConfigData()						
-		self.p = subprocess.Popen([config["pathEmulator"], interface.get_filename()])
-		#self.p.communicate()
+		config = self.__getConfigData()
+		signal.signal(signal.SIGINT,signal.SIG_IGN)
+		signal.signal(signal.SIGTERM,signal.SIG_IGN)
+		try:
+			parts = config["pathEmulator"].split(" ")
+			if len(parts)>=2 and parts[0]=="python":
+				self.p = subprocess.Popen(["python",parts[1], interface.get_filename()])
+			else:
+				self.p = subprocess.Popen([config["pathEmulator"], interface.get_filename()])
+			#self.p.communicate()
+		except Exception as e:
+			interface.message("Error opening emulator:"+str(e))
 
 		
 	def __callbackInsertSnippet(self,data):
