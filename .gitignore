@@ -1,2 +1,5 @@
 *.pyc
-*/*.pyc
+console/*.pyc
+protocol/*.pyc
+snippets/*.pyc
+
