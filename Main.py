@@ -699,6 +699,8 @@ import ciaa_plugin
 from optparse import OptionParser
 import time
 
+from tips.TipsWindow import TipsWindow
+
 gtk.rc_parse(BASE_PATH+'/themes/Mac4Lin_GTK_v0.4/gtk-2.0/gtkrc')
 
 # prints about info from global vars to console
@@ -2545,5 +2547,6 @@ if __name__ == "__main__":
         gtk.main_iteration()        
     time.sleep(2)
     editor = Edile()
+    tipsWindow = TipsWindow(None,BASE_PATH)
     splScr.window.destroy() 
     editor.main()
