@@ -81,8 +81,8 @@ class TipsWindow():
 		
 		
 	
-	def showTips(self):
-		if int(self.cm.readTipsConfig()["flagShowAtStart"])==1:
+	def showTips(self,flagForce=False):
+		if int(self.cm.readTipsConfig()["flagShowAtStart"])==1 or flagForce==True:
 			self.window.show_all()
 		
 	def __loadTips(self,indexLang):

@@ -27,6 +27,7 @@ from LoadScriptWindow import LoadScriptWindow
 from ConfigManager import ConfigManager
 from protocol.Protocol import Protocol
 from snippets.SnippetsWindow import SnippetsWindow
+from tips.TipsWindow import TipsWindow
 
 #emulator
 import subprocess
@@ -88,6 +89,11 @@ class mnu_EDUCIAA:
 		except Exception as e:
 			interface.message("Error opening emulator:"+str(e))
 
+
+	def item_Tips(self,menuItem,interface):
+		self.interface=interface
+		self.tipsWindow = TipsWindow(None,interface.get_base_path())
+		self.tipsWindow.showTips(True)
 		
 	def __callbackInsertSnippet(self,data):
 		code = data[0]
