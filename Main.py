@@ -2548,5 +2548,6 @@ if __name__ == "__main__":
     time.sleep(2)
     editor = Edile()
     tipsWindow = TipsWindow(None,BASE_PATH)
+    tipsWindow.showTips()
     splScr.window.destroy() 
     editor.main()

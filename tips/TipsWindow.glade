@@ -21,14 +21,13 @@
         </child>
         <child>
           <object class="GtkImage" id="imgData">
-            <property name="width_request">576</property>
-            <property name="height_request">425</property>
+            <property name="width_request">900</property>
+            <property name="height_request">445</property>
             <property name="visible">True</property>
             <property name="xalign">0.55000001192092896</property>
-            <property name="pixbuf">tip_01.png</property>
           </object>
           <packing>
-            <property name="x">210</property>
+            <property name="x">180</property>
             <property name="y">9</property>
           </packing>
         </child>
@@ -43,7 +42,7 @@
           </object>
           <packing>
             <property name="x">671</property>
-            <property name="y">444</property>
+            <property name="y">454</property>
           </packing>
         </child>
         <child>
@@ -57,19 +56,19 @@
           </object>
           <packing>
             <property name="x">547</property>
-            <property name="y">444</property>
+            <property name="y">454</property>
           </packing>
         </child>
         <child>
           <object class="GtkComboBox" id="combobox1">
             <property name="width_request">130</property>
-            <property name="height_request">25</property>
+            <property name="height_request">35</property>
             <property name="visible">True</property>
             <property name="row_span_column">1</property>
           </object>
           <packing>
             <property name="x">40</property>
-            <property name="y">454</property>
+            <property name="y">450</property>
           </packing>
         </child>
         <child>

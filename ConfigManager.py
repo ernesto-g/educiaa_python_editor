@@ -72,3 +72,21 @@ class ConfigManager(object):
 		with open(os.path.join(self.homedir,CONFIG_FILENAME), 'wb') as configfile:
 			config.write(configfile)
 	
+	def readTipsConfig(self):
+		parser=SafeConfigParser()
+		parser.read(os.path.join(self.homedir,CONFIG_FILENAME))
+  
+		flagShowAtStart = "1"
+		try:
+			flagShowAtStart = parser.get("Tips","showAtStart")			
+		except:
+			pass
+		return {"flagShowAtStart":flagShowAtStart}
+		
+	def writeTipsConfig(self,showAtStart):
+		config = SafeConfigParser()
+		config.add_section("Tips")
+		config.set("Tips","showAtStart",showAtStart)
+		
+		with open(os.path.join(self.homedir,CONFIG_FILENAME), 'wb') as configfile:
+			config.write(configfile)
