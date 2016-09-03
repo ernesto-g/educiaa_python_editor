@@ -23,7 +23,7 @@
         <child>
           <object class="GtkComboBox" id="comboPorts">
             <property name="width_request">137</property>
-            <property name="height_request">26</property>
+            <property name="height_request">30</property>
             <property name="visible">True</property>
           </object>
           <packing>
