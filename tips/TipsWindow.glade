@@ -8,26 +8,26 @@
         <property name="visible">True</property>
         <child>
           <object class="GtkImage" id="image1">
-            <property name="width_request">207</property>
-            <property name="height_request">421</property>
+            <property name="width_request">115</property>
+            <property name="height_request">255</property>
             <property name="visible">True</property>
             <property name="yalign">0.51999998092651367</property>
             <property name="pixbuf">transistor_asist.png</property>
           </object>
           <packing>
             <property name="x">8</property>
-            <property name="y">7</property>
+            <property name="y">12</property>
           </packing>
         </child>
         <child>
           <object class="GtkImage" id="imgData">
-            <property name="width_request">900</property>
-            <property name="height_request">445</property>
+            <property name="width_request">540</property>
+            <property name="height_request">267</property>
             <property name="visible">True</property>
             <property name="xalign">0.55000001192092896</property>
           </object>
           <packing>
-            <property name="x">180</property>
+            <property name="x">100</property>
             <property name="y">9</property>
           </packing>
         </child>
@@ -41,8 +41,8 @@
             <property name="receives_default">True</property>
           </object>
           <packing>
-            <property name="x">671</property>
-            <property name="y">454</property>
+            <property name="x">550</property>
+            <property name="y">300</property>
           </packing>
         </child>
         <child>
@@ -55,8 +55,8 @@
             <property name="receives_default">True</property>
           </object>
           <packing>
-            <property name="x">547</property>
-            <property name="y">454</property>
+            <property name="x">426</property>
+            <property name="y">300</property>
           </packing>
         </child>
         <child>
@@ -68,7 +68,7 @@
           </object>
           <packing>
             <property name="x">40</property>
-            <property name="y">450</property>
+            <property name="y">300</property>
           </packing>
         </child>
         <child>
@@ -83,7 +83,7 @@
           </object>
           <packing>
             <property name="x">291</property>
-            <property name="y">457</property>
+            <property name="y">310</property>
           </packing>
         </child>
       </object>
