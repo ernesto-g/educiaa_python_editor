@@ -25,6 +25,7 @@ import pango
 from os import listdir
 from os.path import isfile, join
 from ConfigManager import ConfigManager
+from random import shuffle
 		
 class TipsWindow():
 	def __init__(self,tipsWindowCloseEventCallback,basePath):	
@@ -76,6 +77,7 @@ class TipsWindow():
 		self.imgData = builder.get_object("imgData")
 		self.indexTip=0
 		self.tipList = self.__loadTips(self.indexLang)
+		shuffle(self.tipList)
 		self.__showNextTip()
 		
 		

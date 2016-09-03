@@ -23,6 +23,7 @@
 from ConfigParser import SafeConfigParser
 from ConfigParser import RawConfigParser
 from ConfigParser import SafeConfigParser
+from ConfigParser import NoSectionError
 import os
 import sys
 
@@ -41,9 +42,9 @@ class ConfigManager(object):
 		#print("Home dir:"+self.homedir)
 		if not os.path.exists(os.path.join(self.homedir,CONFIG_FILENAME)):
 			if sys.platform.startswith('win32'):
-				self.writeConfig("COM1")
+				self.writeConfig("COM1","-")
 			else:
-				self.writeConfig("ttyUSB0")
+				self.writeConfig("ttyUSB0","-")
 		
 		
 	def readConfig(self):
@@ -63,11 +64,19 @@ class ConfigManager(object):
 		
 	def writeConfig(self,port,pathEmulator):
 		config = SafeConfigParser()
-		config.add_section("Serial")
-		port = config.set("Serial","port",port)
-
-		config.add_section("Emulator")
-		port = config.set("Emulator","path",pathEmulator)
+		#config.add_section("Serial")
+		config.read(os.path.join(self.homedir,CONFIG_FILENAME))
+		try:
+			config.set("Serial","port",port)
+		except NoSectionError:
+			config.add_section("Serial")
+			config.set("Serial","port",port)
+			
+		try:
+			config.set("Emulator","path",pathEmulator)
+		except NoSectionError:
+			config.add_section("Emulator")
+			config.set("Emulator","path",pathEmulator)
 		
 		with open(os.path.join(self.homedir,CONFIG_FILENAME), 'wb') as configfile:
 			config.write(configfile)
@@ -85,8 +94,13 @@ class ConfigManager(object):
 		
 	def writeTipsConfig(self,showAtStart):
 		config = SafeConfigParser()
-		config.add_section("Tips")
-		config.set("Tips","showAtStart",showAtStart)
+		#config.add_section("Tips")
+		config.read(os.path.join(self.homedir,CONFIG_FILENAME))
+		try:
+			config.set("Tips","showAtStart",showAtStart)
+		except NoSectionError:
+			config.add_section("Tips")
+			config.set("Tips","showAtStart",showAtStart)
 		
 		with open(os.path.join(self.homedir,CONFIG_FILENAME), 'wb') as configfile:
 			config.write(configfile)
