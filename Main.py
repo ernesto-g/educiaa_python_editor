@@ -1273,6 +1273,10 @@ class Edile:
                                         (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
                                          gtk.STOCK_OPEN, gtk.RESPONSE_OK))
 
+        filter = gtk.FileFilter()
+        filter.set_name("*.py")
+        filter.add_pattern("*.py")
+        chooser.add_filter(filter)        		
         response = chooser.run()
         if response == gtk.RESPONSE_OK: filename = chooser.get_filename()
         chooser.destroy()
