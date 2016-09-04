@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "EDU-CIAA Python Editor"
-#define MyAppVersion "1.3"
+#define MyAppVersion "1.4"
 #define MyAppPublisher "CIAA Project"
 #define MyAppURL "http://www.proyecto-ciaa.com.ar"
 #define MyAppExeName "Main.exe"
