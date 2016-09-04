@@ -41,6 +41,7 @@ class SnippetsWindow():
 			return
 			
 		self.window = builder.get_object("window1")
+		self.window.set_resizable(False)
 		self.window.set_icon_from_file(basePath+"/icons/icon.ico")
 		self.txtSrc = builder.get_object("txtSrc")
 		self.lblLink = builder.get_object("lblLink")

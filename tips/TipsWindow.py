@@ -40,6 +40,7 @@ class TipsWindow():
 			return
 			
 		self.window = builder.get_object("window1")
+		self.window.set_resizable(False)
 		self.window.set_icon_from_file(basePath+"/icons/icon.ico")
 		self.window.set_title("Tips")		
 		self.window.connect("delete_event", self.__closeBtnEvent)	
