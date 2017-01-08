@@ -76,6 +76,9 @@ class mnu_EDUCIAA:
 		
 
 	def item_Emulator(self,menuItem,interface):
+		if interface.get_filename() == None:
+			interface.message("ERROR. Save file first.")
+			return
 		config = self.__getConfigData()
 		signal.signal(signal.SIGINT,signal.SIG_IGN)
 		signal.signal(signal.SIGTERM,signal.SIG_IGN)

@@ -42,17 +42,24 @@ class ConfigManager(object):
 		#print("Home dir:"+self.homedir)
 		if not os.path.exists(os.path.join(self.homedir,CONFIG_FILENAME)):
 			if sys.platform.startswith('win32'):
-				self.writeConfig("COM1","-")
+				self.writeConfig("COM1",self.__getDefaultEmulatorPath())
 			else:
-				self.writeConfig("ttyUSB0","-")
+				self.writeConfig("ttyUSB0",self.__getDefaultEmulatorPath())
 		
+	def __getDefaultEmulatorPath(self):
+		if sys.platform.startswith('win32'):		
+			pathEmulator = "C:\Program Files (x86)\EDU-CIAA Python Emulator\EmulatorLauncher.exe"
+		else:
+			pathEmulator = "/opt/educiaa-python-emulator/EmulatorLauncher"
+		return pathEmulator
 		
 	def readConfig(self):
 		parser=SafeConfigParser()
 		parser.read(os.path.join(self.homedir,CONFIG_FILENAME))
   
 		port = parser.get("Serial","port")
-		pathEmulator = ""
+		pathEmulator = self.__getDefaultEmulatorPath()
+		
 		try:
 			pathEmulator = parser.get("Emulator","path")
 		except:

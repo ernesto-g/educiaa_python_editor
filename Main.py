@@ -26,7 +26,7 @@
 # This file is based on part of the tutorial: Linux GUI Programming with GTK+ and Glade3
 # http://www.micahcarrick.com/12-24-2007/gtk-glade-tutorial-part-1.html
 #
-#	EDU-CIAA Python editor (2015)
+#	EDU-CIAA Python editor (2015-2017)
 #					
 #	<ernestogigliotti@gmail.com>
 #
@@ -450,7 +450,7 @@ U_I = '''
   </object>
   <object class="GtkWindow" id="window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-    <property name="title" translatable="yes">EduCIAA Python Editor</property>
+    <property name="title" translatable="yes">EDU-CIAA Python Editor</property>
     <property name="default_width">540</property>
     <property name="default_height">660</property>
     <signal handler="on_window_destroy" name="destroy"/>
@@ -1236,7 +1236,7 @@ class Edile:
         dialog = gtk.MessageDialog(None,
                                    gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, message)
-
+        dialog.set_icon_from_file(BASE_PATH+"/icons/icon.ico")
         dialog.run()
         dialog.destroy()
 
@@ -1817,7 +1817,7 @@ class Edile:
 
 
         def update_status(self):
-            cid = self.statusbar.get_context_id("EduCIAA Python Editor")
+            cid = self.statusbar.get_context_id("EDU-CIAA Python Editor")
             self.statusbar.push(cid,self.get_status())
 
 
@@ -1825,7 +1825,7 @@ class Edile:
             self.update_status()
 
         def set_status(self,string):
-            cid = self.statusbar.get_context_id("EduCIAA Python Editor")
+            cid = self.statusbar.get_context_id("EDU-CIAA Python Editor")
             self.statusbar.push(cid,string)
 
         def get_status(self):
@@ -2261,7 +2261,12 @@ class Edile:
 		
     def __toolbarSnippetsEvent(self,arg):
         self.plugin_menu_items[2].activate()
-		
+
+    def __toolbarEmulatorEvent(self,arg):
+        print(self.plugin_menus)
+        self.__toolbarBtnSaveEvent(None) # save file first
+        self.plugin_menu_items[4].activate()
+
     # We use the initialization of the Edile class to establish
     # references to the widgets we'll need to work with in the callbacks for
     # various signals. This is done using the XML in the U_I string
@@ -2338,6 +2343,13 @@ class Edile:
 		icon.set_from_file(BASE_PATH+"/icons/snippets.png")
 		snippetstb.set_icon_widget(icon)
 		snippetstb.set_label("Snippets")
+
+		emulatortb = gtk.ToolButton()
+		icon = gtk.Image()
+		icon.set_from_file(BASE_PATH+"/icons/emulator.png")
+		emulatortb.set_icon_widget(icon)
+		emulatortb.set_label("Emulator")
+
 		sep = gtk.SeparatorToolItem()	
 		sep.set_draw(True)
 		toolbar.insert(newtb, 0)
@@ -2348,6 +2360,7 @@ class Edile:
 		toolbar.insert(loadScriptb, 4)
 		toolbar.insert(terminaltb, 5)
 		toolbar.insert(snippetstb, 6)
+		toolbar.insert(emulatortb, 7)
 		
 		#events
 		newtb.connect("clicked", self.__toolbarBtnNewEvent)
@@ -2356,6 +2369,7 @@ class Edile:
 		loadScriptb.connect("clicked", self.__toolbarLoadScriptEvent)
 		terminaltb.connect("clicked", self.__toolbarTerminalEvent)
 		snippetstb.connect("clicked", self.__toolbarSnippetsEvent)
+		emulatortb.connect("clicked", self.__toolbarEmulatorEvent)
 		
 		vbox = builder.get_object("vbox2")
 		vbox.pack_start(toolbar, False, False, 0)			
@@ -2460,13 +2474,13 @@ class Edile:
 		gtk.window_set_default_icon_name(gtk.STOCK_EDIT)
 
         # setup and initialize our statusbar
-		self.statusbar_cid = self.statusbar.get_context_id("EduCIAA Python Editor")
+		self.statusbar_cid = self.statusbar.get_context_id("EDU-CIAA Python Editor")
 
         # setup search window
 		self.search_window.set_destroy_with_parent(True)
 		self.search_window.set_transient_for(self.window)
 		self.search_window.set_position(gtk.WIN_POS_CENTER_ON_PARENT)
-		self.search_window.set_title('Find | EduCIAA Python Editor')
+		self.search_window.set_title('Find | EDU-CIAA Python Editor')
 		self.search_window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
 
 		#autocomplete
