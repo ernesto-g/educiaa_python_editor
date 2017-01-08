@@ -140,7 +140,7 @@ def callBack(line):
         print("Line = ",line)
 
 p = pyb.Pin(8)
-p.init(pyb.Pin.OUT_PP,pyb.Pin.PULL_NONE)
+p.init(pyb.Pin.IN,pyb.Pin.PULL_NONE)
 print(p)
 
 int = pyb.ExtInt(p,pyb.ExtInt.IRQ_RISING,pyb.Pin.PULL_NONE,callBack)
@@ -154,13 +154,14 @@ while True:
     <snippet name="Hardware. UART-RS485 Example"><![CDATA[#UART-RS485 Example
 import pyb
 uart = pyb.UART(0)
-uart.init(115200,bits=8, parity=None, stop=1,timeout=1000, timeout_char=1000, read_buf_len=64)
+uart.init(115200,bits=8, parity=None, stop=1,timeout=100, timeout_char=0, read_buf_len=64)
 uart.write("Hello world")
 while True:
         if uart.any():
                 print("data:")
                 data = uart.readall()
-                print(data)	
+                print(data)
+                uart.write(data)				
 #___________]]></snippet>
 
     <snippet name="Hardware. DAC Example: sine output"><![CDATA[#DAC Example: sine output
