@@ -32,6 +32,7 @@ from tips.TipsWindow import TipsWindow
 #emulator
 import subprocess
 import signal
+import time
 
 class mnu_EDUCIAA:
 	
@@ -79,6 +80,12 @@ class mnu_EDUCIAA:
 		if interface.get_filename() == None:
 			interface.message("ERROR. Save file first.")
 			return
+		if self.p!=None:
+			try:
+				self.p.kill()
+				time.sleep(0.5)
+			except:
+				pass
 		config = self.__getConfigData()
 		signal.signal(signal.SIGINT,signal.SIG_IGN)
 		signal.signal(signal.SIGTERM,signal.SIG_IGN)

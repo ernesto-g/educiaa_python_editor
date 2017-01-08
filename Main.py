@@ -96,7 +96,7 @@ CONF_SMART_HOME_END_TYPE            =   ('Before','Disabled','After','Always')
 
 # stuff here you probably shouldn't edit
 #=======================================================================
-EDILE_VERSION = '1.4'
+EDILE_VERSION = '1.5'
 EDILE_URL = 'https://github.com/ernesto-g/educiaa_python_editor'
 EDILE_NAME = 'EDU-CIAA Python Editor'
 EDILE_DESCRIPTION = 'Editor based on EDILE 0.2 http://edile.googlecode.com '
