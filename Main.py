@@ -451,7 +451,7 @@ U_I = '''
   <object class="GtkWindow" id="window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
     <property name="title" translatable="yes">EDU-CIAA Python Editor</property>
-    <property name="default_width">540</property>
+    <property name="default_width">590</property>
     <property name="default_height">660</property>
     <signal handler="on_window_destroy" name="destroy"/>
     <signal handler="on_window_delete_event" name="delete_event"/>
