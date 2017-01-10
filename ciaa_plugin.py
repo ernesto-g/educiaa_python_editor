@@ -33,6 +33,12 @@ from tips.TipsWindow import TipsWindow
 import subprocess
 import signal
 import time
+import sys
+import os
+
+if sys.platform.startswith('win32')==False:
+	import psutil
+
 
 class mnu_EDUCIAA:
 	
@@ -76,16 +82,25 @@ class mnu_EDUCIAA:
 		self.configW = ConfigWindow(self.__callbackPort,config["port"],interface.get_base_path(),config["pathEmulator"]) # show config window
 		
 
+	def __kill(self,proc_pid):
+		process = psutil.Process(proc_pid)
+		for proc in process.get_children(recursive=True):
+			proc.kill()
+		process.kill()
+
 	def item_Emulator(self,menuItem,interface):
 		if interface.get_filename() == None:
 			interface.message("ERROR. Save file first.")
 			return
 		if self.p!=None:
 			try:
-				self.p.kill()
+				if sys.platform.startswith('win32'):
+					self.p.kill()
+				else:
+					self.__kill(self.p.pid)
 				time.sleep(0.5)
-			except:
-				pass
+			except Exception as e:
+				print(e)
 		config = self.__getConfigData()
 		signal.signal(signal.SIGINT,signal.SIG_IGN)
 		signal.signal(signal.SIGTERM,signal.SIG_IGN)
