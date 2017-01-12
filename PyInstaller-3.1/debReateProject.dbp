@@ -5,7 +5,7 @@ Version: 1.5
 Maintainer: Ernesto Gigliotti <ernestogigliotti@gmail.com>
 Priority: optional
 Architecture: amd64
-Depends: python-serial, python-gtksourceview2, python-gtk2
+Pre-Depends: python-gtksourceview2, python-gtk2, python-serial
 Description: EDU-CIAA Python Editor
 
 <</CTRL>>
